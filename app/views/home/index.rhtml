@@ -1,0 +1,107 @@
+<% content_for :flash do %>
+<div class="clear">
+    <div class="main_flash">
+		<div id="main_image_placeholder"><img class="main_image" src="main_flash_images/pic_0.jpg" /></div>
+		<div id="pics">
+			<img src="main_flash_images/pic_1.jpg" />
+			<img src="main_flash_images/pic_2.jpg" />
+			<img src="main_flash_images/pic_3.jpg" />
+			<img src="main_flash_images/pic_4.jpg" />
+			<img src="main_flash_images/pic_5.jpg" />
+			<img src="main_flash_images/pic_6.jpg" />
+			<img src="main_flash_images/pic_7.jpg" />
+			<img src="main_flash_images/pic_8.jpg" />
+			<img src="main_flash_images/pic_9.jpg" />
+			<img src="main_flash_images/pic_10.jpg" />
+		</div>
+		<div id="main-image-buttons">
+		<a id="scroll_left" href="#"></a>
+		<a id="scroll_right" href="#" style="display:none;"></a>
+		</div>
+		<ul class="catalog_nav">
+		<li class="menu_openflowed"><a href="/store/production/moto/">
+			<span class="bg"></span>
+			<span>Мотоциклы</span>
+			<img src="main_flash_images/small_pic_1.jpg" /></a>
+		</li>
+		<li class="menu_openflowed"><a href="/store/production/scooters/">
+			<span class="bg"></span>
+			<span>Скутеры</span>
+			<img src="main_flash_images/small_pic_2.jpg" /></a>
+		</li>
+		<li><a class="color_snow" href="/store/production/snowmotor/">
+			<span class="bg"></span>
+			<span>Снегоходы</span>
+			<img src="main_flash_images/small_pic_3.jpg" /></a>
+		</li>
+		<li><a class="color_dirt" href="/store/production/quadro/">
+			<span class="bg"></span>
+			<span>Квадроциклы</span>
+			<img src="main_flash_images/small_pic_4.jpg" /></a>
+		</li>
+		<li><a class="color_dirt" href="/store/production/rover/">
+			<span class="bg"></span>
+			<span>Мото-<br />вездеходы</span>
+			<img src="main_flash_images/small_pic_5.jpg" /></a>
+		</li>
+		<li><a class="color_water" href="/store/production/boatmotor/">
+			<span class="bg"></span>
+			<span>Лодочные моторы</span>
+			<img src="main_flash_images/small_pic_6.jpg" /></a>
+		</li>
+		<li><a class="color_water" href="/store/production/hydrocycles/">
+			<span class="bg"></span>
+			<span>Гидроциклы</span>
+			<img src="main_flash_images/small_pic_7.jpg" /></a>
+		</li>
+		<li><a class="color_sun" href="/store/production/generators/">
+			<span class="bg"></span>
+			<span>Генераторы</span>
+			<img src="main_flash_images/small_pic_8.jpg" /></a>
+		</li>
+		<li class="menu_overflowed"><a class="color_water" href="/store/production/boats/">
+			<span class="bg"></span>
+			<span>Лодки</span>
+			<img src="main_flash_images/small_pic_9.jpg" /></a>
+		</li>
+		<li class="menu_overflowed"><a href="/accessories/">
+			<span class="bg"></span>
+			<span>Аксессуары</span>
+			<img src="main_flash_images/small_pic_10.jpg" /></a>
+		</li>
+		</ul>
+	</div>
+	<div class="gray_split_line"></div>	
+</div>
+<% end %>
+<div class="main_page_col_container">
+<% for banner in @banners %>
+<%= cycle('<div class="container_w220 left">', "", :name => "open") %>
+	<div class="small_banner">
+		<h1><%= banner.title %></h1>
+	<%= link_to image_tag(banner.image.url), banner.url %>
+	<%= '<div class="short_info_bg"></div>' if banner.caption.length > 0 %>
+	<%= link_to banner.caption, banner.url, :class => "short_info_text" if banner.caption.length > 0 %>
+	</div>
+<%= cycle('', "</div>", :name => "close") %>
+<% end %>
+
+
+<!-- 4 колонка -->
+<div class="container_w220 left">
+	<ul class="news">
+		<h1><a href="/news/">Новости</a></h1>
+		<h2>Будь в курсе!</h2>
+		<% for post in @news %>
+		<li>
+			<p class="date"><%= post.created_at.strftime("%d.%m.%Y") %></p>
+			<a href="<%= news_path(post) %>"><%= post.title %></a>
+		</li>
+		<% end %>
+
+	</ul>
+</div>
+<!--четыре колонки - конец-->
+</div>
+
+<!-- контент - конец -->

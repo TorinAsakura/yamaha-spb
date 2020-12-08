@@ -1,0 +1,9 @@
+--- 
+users_001: 
+  updated_at: 2010-02-09 15:36:41
+  password_salt: 40ab34bc61caa4207914b818fd7c4dd920e6624c
+  username: admin
+  id: "1"
+  password_hash: e186ab70c3dde0dc701d38b8cd03623c4fe9d2aa
+  created_at: 2010-02-09 15:36:41
+  email: sman2d@gmail.com

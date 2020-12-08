@@ -1,0 +1,25 @@
+<div id="subnav">
+	<a href="/admin/posts/new">Добавить новость</a>
+	<a href="/admin/items/new?type=equip">Добавить акссесуар</a>
+</div>
+<div class="container">
+<% @page.children.each do |p| %>
+<%= content_tag('h1', p.title) %>
+
+<%
+@page_ids = []
+p.self_and_descendants.each do |d|
+	@page_ids << d.id
+end
+@items = Item.find(:all, :conditions => {:page_id => @page_ids})
+%>
+<ul class="items-list">
+<% if @items %>
+<% for item in @items %>
+	<li><%= image_tag item.image.url %><%= item.title %> <%= link_to "Редактировать", edit_admin_item_path(item) %> <%= link_to "Удалить", admin_item_path(item), :method => :delete %></li>
+<% end %>
+<% end %>
+</ul>
+<div class="clear"></div>
+<% end %>
+</div>

@@ -1,0 +1,13 @@
+--- 
+taggings_001: 
+  tag_id: "1"
+  id: "1"
+  taggable_type: Post
+  taggable_id: "3"
+  created_at: 2010-02-09 16:41:13
+taggings_002: 
+  tag_id: "1"
+  id: "2"
+  taggable_type: Post
+  taggable_id: "4"
+  created_at: 2010-02-09 16:47:41

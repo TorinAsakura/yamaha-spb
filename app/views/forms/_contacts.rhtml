@@ -1,0 +1,64 @@
+<div class="text">
+	<img src="/images/yamaha_photo.jpg" style="margin: 15px; margin-left: 0px;"/>
+
+	<h2>
+		Наш адрес</h2>
+	196084, Санкт-Петербург, Ново-Рыбинская ул.,<br />
+	дом 19-21, лит А.<br />
+	<br />
+	<a class="contact_link open_map" href="#"><img src="/images/flag.gif" />Карта проезда</a><br />
+	<br />
+
+	<h2>
+		Режим работы салона</h2>
+    пн-пт: с 9.00 до 21.00<br />
+    сб, вс: с 10.00 до 21.00<br/>
+	<h2>
+		Режим работы сервиса</h2>
+	с 9.00 до 21.00 без выходных<br />
+	<br />
+	<div class="gray_split_line container_w450">
+		&nbsp;</div>
+	<br />
+
+	<h2>
+		Контактные телефоны</h2>
+	Салон: (812) 337-10-41 (многоканальный).<br />
+	Сервис: (812) 335-97-57<br />
+	<br />
+	<a class="contact_link" style="cursor:pointer;" onclick="javascript:$('.contact_form_div').toggle();"><img src="/images/mail.gif" />Отправить сообщение</a><br />
+	&nbsp;</div>
+<!--меню-->
+<div class="contact_form_div hidden">
+<ul class="visual_info_menu contact_menu container_w480">
+	<li class="salon">
+		<p>Салон</p>
+	</li>
+	<li class="details">
+		<a>Отдел запчастей</a></li>
+</ul>
+<form class="default_form contact_form" name="contact_form" method="POST" action="/forms/contact/">
+	
+	<label>Представьтесь, пожалуйста<br />
+	<input type="hidden" name="department" style="display: none;" id="department" />
+	<input type="text" name="name" /></label> <label>Эл. почта<br />
+	<input name="email" type="text" /> </label> <label><br />
+	Комментарии<br />
+	<textarea name="body"></textarea></label> <a class="button_red margin_10_0" href="javascript:document.contact_form.submit();">Отправить....</a><br />
+	&nbsp;
+</form>
+</div>
+<br clear="all"/>
+	<a class="button_gray margin_10_0" href="/about/contacts/print"><span class="left_item"></span>Печать....<span class="right_item"></span></a>
+<!-- контент - конец -->
+
+<% content_for :form_container do %>
+<table class="form_container hidden"><tbody><tr><td>
+	<div class="contact_map">
+
+
+		<a href="#" class="close_map"/>
+	</div>
+</td></tr></tbody></table>
+<% end %>
+<script type="text/javascript">$(".default_page_head").hide();</script>

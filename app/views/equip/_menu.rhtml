@@ -1,0 +1,14 @@
+
+<!-- меню слева -->
+<ul class="catalog_menu">
+<% unless @item %>
+<% Page.find(:all, :conditions => {:parent_id => @page.id}, :order => "position ASC").each do |p| %>	
+<li><% if @page.permalink == p.permalink || (@page.parent && @page.parent.permalink == p.permalink) || (@item && @item.page.parent.permalink == p.permalink) %><p><%= p.title %></p><% else %><a href="/accessories/<%= p.permalink %>"><%= p.title %></a><% end %></li>
+<% end %>
+<% else %>
+<% @equip_page.children.each do |p| %>	
+<li><% if @page.permalink == p.permalink || (@page.parent && @page.parent.permalink == p.permalink) || (@item && @item.page.parent.permalink == p.permalink) %><p><%= p.title %></p><% else %><a href="/accessories/<%= p.permalink %>"><%= p.title %></a><% end %></li>
+<% end %>
+<% end %>
+
+</ul>

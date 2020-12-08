@@ -1,0 +1,41 @@
+<div class="container">
+<%= error_messages_for :banner %>
+
+<% content_for :js do %>
+<%= javascript_include_tag :ckeditor %>
+<% end %>
+
+<fieldset>
+
+<% form_for ["admin", @banner], :html => {:multipart => true} do |f| -%>
+  
+  <p>
+	<%= f.label :title, "Название" %><br/>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+	<%= f.label :page, "Страница" %>
+	<%= tree_select(Page.find(:all, :conditions => "parent_id IS NULL OR parent_id=0"),
+	                        'banner', 'page_id', @banner.page) %>
+  <p>
+	<%= f.label :image, "Картинка *" %><br/>
+	<%= f.file_field :image %>
+  </p>
+  <p>
+	<%= f.label :orientation, "Позиция" %>
+	<%= f.select :orientation, "<option value='left'>Слева</option><option value='right'>Справа</option>" %>
+  <p>
+	<%= f.label :url, "Ссылка" %><br/>
+    <%= f.text_field :url %>
+  </p>
+  <p>
+	<%= f.label :caption, "Подпись" %><br/>
+    <%= f.text_field :caption %>
+  </p>
+  <p>
+    <div><%= f.submit "Сохранить" %></div>
+    <div><%= f.submit "Очистить" %></div>
+  </p>
+<% end -%>
+</fieldset>
+</div>

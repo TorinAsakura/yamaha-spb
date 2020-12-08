@@ -1,0 +1,16 @@
+<div id="ttx_div_<%=ttx.id%>">
+	<% @item_ttx = item.item_ttxes.find(:first, :conditions => {:ttx_id => ttx.id } )%>
+	<p><%= ttx.title %> <%= link_to_remote "Удалить", :url => admin_ttx_path(ttx), :method => :delete, :confirm => "Вы уверены что хотите удалить группу характеристик? Характеристика будет удалена со всех типов техники." %></p>
+	<p>
+	<% if @item_ttx %>
+	<%= text_field_tag "item[item_ttxes_attributes][][value]", @item_ttx.value %>
+	<% else %>
+	<%= text_field_tag "item[item_ttxes_attributes][][value]" %>
+	<% end %>
+	<%= hidden_field_tag "item[item_ttxes_attributes][][ttx_id]", ttx.id %>
+	<%= hidden_field_tag "item[item_ttxes_attributes][][id]", @item_ttx.id if @item_ttx %>
+	
+	
+</p>
+
+</div>

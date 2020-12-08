@@ -1,0 +1,32 @@
+<%= render :partial => "breadcrumbs" %>	
+<div>
+<%= @page.content %>
+</div>
+<br clear="all" />
+<div class="clear"></div>
+<div id="models_list_container" class="models_list_container">
+<% i = 0 %>
+<% for category in @childs %>
+<% i+=1 %>
+<div class="model_item"><a class="head_button <%= category.permalink %> <%= category.parent.permalink if category.parent %>" href="/store/production/<%= category.permalink %>"><%= category.title %></a>
+	<%
+	if category.children.count > 0
+		@item = Item.find(:first, :conditions => {:page_id => category.children.first.id})
+	else
+		@item = Item.find(:first, :conditions => {:page_id => category.id})
+	end
+	#@item = Item.find(:first, :conditions => "(page_id =#{category.id} OR page_id=#{category.parent.id}) AND image_file_name IS NOT NULL" )
+	%>
+	<% if @item %><a href="/store/production/<%=category.permalink%>"><img id="category_<%=category.id%>" src="<%= @item.image.url %>" /></a><% end %><br clear="all" />
+	<div class="models_list <%= category.permalink %> <%= category.parent.permalink if category.parent %>">
+		<% for item in category.items %>
+		  <a onmouseover="$('#category_<%=category.id%>').attr('src', '<%=item.image.url%>');" href="/store/production/<%= category.permalink %>/<%= item.id %>"><%= item.title %></a>
+		<% end %>
+	</div>
+</div>
+<% if i == 5 || i == 10 || i == 15 %>
+<div class="gray_split_line"></div>
+<% end %>
+<% end %>
+
+</div>

@@ -1,0 +1,15 @@
+<%= @page.content %>
+<ul class="models_list_container">
+<% @categories.each do |category| %>
+<li class="model_item"><a class="head_button <%= category.permalink %>" href="#"><%= category.title %></a></li>
+    <img src="<%= category.image.url %>">
+
+    <p><%= category.content %></p>
+	<div class="models_list">
+		<% category.items.each do |item| %>
+		   <%= link_to item.title, items_path(item) %>
+		<% end %>
+	</div>
+</li>
+<% end %>
+</ul>

@@ -1,0 +1,123 @@
+.row ul {
+	margin-left: 0px;
+}
+
+.compare_add_form {
+	clear: both;
+	border: solid 5px #E4E5E6;
+	padding: 10px 20px;
+	position: absolute;
+	top: 35px;
+	left: 15px;
+	background-color: white;
+	width: 350px;
+	z-index: 10;
+}
+	.compare_add_form select, .compare_add_form option {
+		margin-bottom: 10px;
+		width: 350px;
+	}
+	.compare_add_form option { width: 320px; }
+	
+.close_compare {
+	background-image: url("../images/close_compare.gif");
+	height: 18px;
+	width: 18px;
+}
+	.close_compare:hover {
+		background-image: url("../images/close_compare_red.gif");
+	}
+	
+.compare_table {
+	float: left;
+	position: relative;
+	overflow: hidden;
+	clear: both;
+	width: 100%;
+}
+	.compare_table .fill_left, .compare_table .fill_right {
+		background-color: white;
+		position: absolute;
+		top: 0px;
+		z-index: 2;
+		height: 2000px;
+	}
+	.compare_table .fill_left {
+		left: 0px;
+		width: 120px;
+	}
+	.compare_table .fill_right {
+		right: 0px;
+		width: 30px;
+	}
+	.compare_table .gray_split_line {
+		position: relative;
+		z-index: 3;
+	}
+	.compare_table .row {
+		width: 2000px;
+		float: left;
+		clear: both;
+		margin: 8px 0px;
+	}
+	.compare_table h1, .compare_table li {
+		margin-right: 15px;
+	}
+	.compare_table h1 {
+		font-size: 11px;
+		display: block;
+		position: relative;
+		z-index: 3;
+		width: 105px;
+		float: left;
+		clear: both;
+	}
+	.compare_table ul {
+		position: relative;
+		z-index: 1;
+		float: left;
+		margin-left: 0px;
+	}
+	.compare_table li {
+		position: relative;
+		height: 100%;
+		float: left;
+		width: 137px;
+		overflow: hidden;
+	}
+	.compare_table .close_compare {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+	}
+	.compare_table a.model {
+		display: block;
+		color: #d52b1e;
+		font-weight: bold;
+		text-decoration: none;
+		line-height: 22px;
+	}
+	.compare_table a.model:hover {color: #1e1e1e;}
+	
+.compare_table #scroll_next,
+.compare_table #scroll_prev {
+	position: absolute;
+	z-index: 10;
+	width: 12px;
+	height: 31px;
+	padding: 8px;
+	background-color: white;
+	top: 30px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+	.compare_table #scroll_next {
+		background-image: url("../images/compare_left_arrow.gif");
+		left: 90px;
+	}
+	.compare_table #scroll_next:hover {background-image: url("../images/compare_left_arrow_red.gif");}
+	.compare_table #scroll_prev {
+		background-image: url("../images/compare_right_arrow.gif");
+		right: 0px;
+	}
+	.compare_table #scroll_prev:hover {background-image: url("../images/compare_right_arrow_red.gif");}

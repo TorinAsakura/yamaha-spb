@@ -1,0 +1,71 @@
+--- 
+photos_001: 
+  item_id: "1"
+  updated_at: 2010-02-09 15:52:00
+  asset_file_name: 2010-yamaha-YZF-R1_DPBMC_action_001_prv_tcm85-327498.jpg
+  asset_file_size: "119864"
+  asset_content_type: image/jpeg
+  id: "1"
+  color: 
+  created_at: 2010-02-09 15:52:00
+  asset_updated_at: 2010-02-09 15:51:59
+photos_002: 
+  item_id: "1"
+  updated_at: 2010-02-09 15:52:09
+  asset_file_name: 2009-YZF-R1-detail-05_prv_tcm85-266418.jpg
+  asset_file_size: "17720"
+  asset_content_type: image/jpeg
+  id: "2"
+  color: 
+  created_at: 2010-02-09 15:52:09
+  asset_updated_at: 2010-02-09 15:52:08
+photos_003: 
+  item_id: "1"
+  updated_at: 2010-02-09 15:52:13
+  asset_file_name: 2009-YZF-R1-detail-04_prv_tcm85-266415.jpg
+  asset_file_size: "18899"
+  asset_content_type: image/jpeg
+  id: "3"
+  color: 
+  created_at: 2010-02-09 15:52:13
+  asset_updated_at: 2010-02-09 15:52:12
+photos_004: 
+  item_id: "1"
+  updated_at: 2010-02-09 15:53:05
+  asset_file_name: 2010-yamaha-YZF-R1_colour_DPBMC_studio_001_prv_tcm85-325976.jpg
+  asset_file_size: "124559"
+  asset_content_type: image/jpeg
+  id: "4"
+  color: ffffff
+  created_at: 2010-02-09 15:53:05
+  asset_updated_at: 2010-02-09 15:53:04
+photos_005: 
+  item_id: "1"
+  updated_at: 2010-02-09 15:53:41
+  asset_file_name: 2010-yamaha-YZF-R1_colour_SMX_studio_003_prv_tcm85-327494.jpg
+  asset_file_size: "113877"
+  asset_content_type: image/jpeg
+  id: "5"
+  color: ffffff
+  created_at: 2010-02-09 15:53:41
+  asset_updated_at: 2010-02-09 15:53:40
+photos_006: 
+  item_id: "4"
+  updated_at: 2010-02-09 18:59:25
+  asset_file_name: 2010-yamaha-FZ1-FAZER_DPBMX_ACT_001_prv_tcm85-326159.jpg
+  asset_file_size: "112557"
+  asset_content_type: image/jpeg
+  id: "6"
+  color: 
+  created_at: 2010-02-09 18:59:25
+  asset_updated_at: 2010-02-09 18:59:25
+photos_007: 
+  item_id: "4"
+  updated_at: 2010-02-09 18:59:51
+  asset_file_name: 2010-yamaha-FZ1-FAZER_DPBMX_detail_003_prv_tcm85-326150.jpg
+  asset_file_size: "117757"
+  asset_content_type: image/jpeg
+  id: "7"
+  color: 
+  created_at: 2010-02-09 18:59:51
+  asset_updated_at: 2010-02-09 18:59:50

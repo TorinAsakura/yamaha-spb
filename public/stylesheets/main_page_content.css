@@ -1,0 +1,91 @@
+.main_page_col_container {
+	float: left;
+	margin-right: -10px;
+	margin-bottom: 4px
+}
+.main_page_col_container .container_w220 {
+	margin-right: 10px;
+}
+
+.main_flash {
+	overflow: hidden;
+	position: relative;
+	height: 290px;
+}
+	.main_flash #pics, .main_flash #pics img {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+	.main_flash #pics img {
+		opacity: 0.0;
+		filter: alpha(opacity=0);
+	}
+	.main_flash ul {
+		position: absolute;
+		margin-top: -28px;
+		//margin-top: -30px;
+	}
+	.main_flash ul li {
+		position: relative;
+		width: 90px;
+		float: left;
+		margin-left: 1px;
+	}
+	.main_flash ul li a span {
+		position: relative;
+		z-index: 2;
+		text-align: center;
+	}
+	.main_flash ul li a span.bg {
+		position: absolute;
+		z-index: 1;
+		top: 0px;
+		left: 0px;
+		width: 90px;
+		height: 28px;
+		background-color: #d52b1e;
+		opacity: 0.85;
+		filter: alpha(opacity=85);
+	}
+	.main_flash ul li a {
+		display: block;
+		height: 28px;
+		width: 90px;
+		font-family: Arial,Helvetica,sans-serif;
+		font-size: 12px;
+		font-weight: bold;
+		text-decoration: none;
+		text-align: center;
+		line-height: 10px;
+		padding-top: 3px;
+		color: white;
+	}
+	.main_flash ul li a:hover {	color: white; }
+	.main_flash ul li a img {position: absolute; top: 28px; left: 0px;}
+	.color_snow:hover span.bg {background-color: #9db9d1;}
+	.color_dirt:hover span.bg {background-color: #a99767;}
+	.color_water:hover span.bg {background-color: #006bbb;}
+	.color_sun:hover span.bg {background-color: #edb32b;}
+	
+	
+.main_flash #scroll_left, .main_flash #scroll_right {
+	position: absolute;
+	z-index: 5;
+	top: 220px;
+	width: 12px;
+	height: 54px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+	 .main_flash #scroll_left {
+		 background-image: url("../main_flash_images/scroll_left.gif");
+		 left: 0px;
+		 display: none;
+	 }
+	 .main_flash #scroll_right {
+		 background-image: url("../main_flash_images/scroll_right.gif");
+		 right: 0px;
+	 }
+	 .main_flash #scroll_left:hover {background: url("../main_flash_images/scroll_left_on.gif"); background-repeat: no-repeat;background-position: 50% 50%;}
+	 .main_flash #scroll_right:hover {background-image: url("../main_flash_images/scroll_right_on.gif"); background-repeat: no-repeat;background-position: 50% 50%;}

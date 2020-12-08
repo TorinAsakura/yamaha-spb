@@ -1,0 +1,9 @@
+<ul>
+<% @items.each do |i| %>
+	<li class="child"><img class="context-menu-show" src="/images/admin/pen_img.png" onclick="menu_show(this, <%=i.id%>, 'item');" /> &nbsp; <%=link_to i.title, edit_admin_item_path(i), :id => i.id, :url => "/admin/items/#{i.id}" %></li>
+<% end %>
+</ul>
+<script type="text/javascript">
+var top = $('.list:last').offset().top - 340;
+$('#items').css('top', top+'px');
+</script>

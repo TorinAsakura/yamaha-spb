@@ -1,0 +1,9 @@
+<%
+client = YouTubeG::Client.new
+videos = client.videos_by(:user => "man31337d") 
+%>
+<% videos.videos.each do |video| %>
+<% video.thumbnails.each do |thumb| %>
+<%= image_tag thumb.url if thumb.height < 100 %>
+<% end %>
+<% end %>

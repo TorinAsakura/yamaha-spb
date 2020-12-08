@@ -1,0 +1,38 @@
+<div class="red_split_line"></div>
+<div class="clear"></div>
+<div class="left_menu_187">
+	<%= render :partial => "menu" %>
+	<% if @item.price.length > 0 %>
+	<div class="price_container">
+					<div class="price_tl">Цена</div>
+					<p class="price"><%= @item.price %></p>
+					<p><%= @item.price_description %></p>
+					<div class="price_tr"></div>
+					<div class="price_bl"></div>
+					<div class="price_br"></div>
+	</div>	
+	<% end %>
+</div>
+
+<div class="container_p100 left_menu_187_margin">
+		<!-- Экипировка -->
+			<div class="equip_back"><a href="/<%= @item.page.full_permalink %>">Обратно к списку</a></div>
+			
+			<div class="text">
+				<br/>
+				<h3><%= @item.title %></h3>
+				<p></p>
+				
+				<div class="left" style="width:380px;">
+						<% if @photo %>
+						<img width="380" src="<%= @photo.asset.url(:equip) %>"/><br/>
+					    <% end %>
+						<%= will_paginate @photos, :class => "pages pages_align", :style => "margin-bottom: 15px;" %>
+						<div class="clear">&nbsp;</div>
+				</div>
+				<div class="right" style="margin-top: -10px; margin-left: 15px; width: 240px;">
+				<%=  @item.review %>	
+				</div>
+			</div>
+		<!-- Экипировка - конец -->
+		</div>

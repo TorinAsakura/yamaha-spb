@@ -1,0 +1,103 @@
+<%= render :partial => 'breadcrumbs' %>
+
+
+<div class="clear"></div>
+
+<div class="container_w220 left as_3col_margins">
+<!-- колонка слева -->
+	<!-- меню слева -->
+	<ul class="catalog_menu">
+	<div class="red_split_line"></div><br /><br />
+	<%= render :partial => "menu" %>
+	</ul>
+	
+	<!-- баннер -->
+	<% Banner.find(:all, :conditions => {:page_id => @page.id, :orientation => "left"}).each do |banner| %>
+	<div class="small_banner">
+		<h1><%= banner.title %></h1>
+		<a href="<%= banner.url %>"><img src="<%= banner.image.url %>" /></a>
+		<% if banner.caption %><div class="short_info_bg"></div>
+		<a href="<%= banner.url %>" class="short_info_text"><%= banner.caption %></a><% end %>
+	</div>
+	<% end %>
+	<!-- текстовый баннер -->
+	<div class="small_text_banner">
+		<h1>Не нашли подходящий аксессуар?</h1>
+		<p>Обратитесь к нашим <a href="/about/contacts/">менеджерам</a>, они обязательно помогут :)</p>
+	</div>
+	
+</div>
+
+
+<div class="container_w450 left as_3col_margins">
+<!-- центральная колонка -->
+	<img src="/images/pic_450x208.jpg" />
+	
+	<br /><br />
+	
+	<div class="accessories_selection">
+		<a href="#" onclick="$('#accessories_form').slideToggle(300);">Подобрать аксессуар</a>
+	</div>
+	
+	<form class="accessories_selection_form hidden" method="POST" name="accessories_form" id="accessories_form">
+
+		<center>
+		<select name="accessory_type" id="accessory_type" class="accessory_selector" onchange="accessory_select(this);">
+		  <option disabled selected value="">Тип аксессуара</option>
+		  <% Page.find(:all, :conditions => {:parent_id => @page.id}).each do |page| %>
+		  <option value="<%=page.permalink%>"><%=page.title%></option>
+		  <% end %>
+		</select>
+		
+		
+
+		
+		
+		<div class="container_w220">
+		<a class="button_gray w_80" href="/accessories/"><span class="left_item"></span>Отменить<span class="right_item"></span></a>
+		<a class="button_gray w_80 right"  href="#" onclick="equip_submit();"><span class="left_item"></span>Подобрать<span class="right_item"></span></a>
+		</div>
+		<br /><br />
+		</center>
+		
+	</form>
+
+	
+	<br />
+	
+	<ul class="accessories_list">
+		<p class="font_white bg_gray_dark">Популярные аксессуары</p>
+		<% Item.find(:all, :conditions => {:popular => true, :published => true}, :order => "created_at DESC", :limit => 25).each do |i| %>
+		<% if i.page %><li><a href="/<%= i.page.full_permalink %>/<%= i.id %>"><%= image_tag i.image.url %></a></li><% end %>
+		<% end %>
+	</ul>
+	
+<!-- центральная колонка - конец -->
+
+</div>
+
+<div class="container_w220 left">
+<!-- колонка справа -->
+	<div class="gray_split_line"></div>
+	<ul class="news">
+		<h1 style="font-size:16px;"><a href="#">Новости</a></h1>
+		<h2>Будь в курсе!</h2>
+		<% Post.find(:all, :conditions => ["page_id = ?", @page.id], :limit => 3).each do |post| %>
+		<li>
+			<p class="date"><%= post.created_at.strftime("%d.%m.%Y") %></p>
+			<a href="<%= news_path(post) %>"><%= post.title %></a>
+		</li>
+		<% end %>
+	</ul>
+	
+	<!-- баннер -->
+	<% Banner.find(:all, :conditions => {:page_id => @page.id, :orientation => "right"}).each do |banner| %>
+	<div class="small_banner">
+		<h1><%= banner.title %></h1>
+		<a href="<%= banner.url %>"><img src="<%= banner.image.url %>" /></a>
+		<% if banner.caption %><div class="short_info_bg"></div>
+		<a href="<%= banner.url %>" class="short_info_text"><%= banner.caption %></a><% end %>
+	</div>
+	<% end %>
+<!-- колонка справа - конец -->
+</div>

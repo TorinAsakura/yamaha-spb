@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "jquery-ui" %>
+<%= javascript_include_tag "admin/jquery.autocomplete.min" %>
+<%= javascript_include_tag "admin/ckeditor/ckeditor" %>
+<%= javascript_include_tag "admin/admin" %>
+<%= yield :js %>
+<link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print">
+<%= stylesheet_link_tag 'jquery.autocomplete.css' %>
+<%= stylesheet_link_tag 'admin.css' %>
+<!--[if lt IE 8]>
+  <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+</head>
+<body>
+<div id="layout">
+<%= render :partial => "admin/shared/header" %>
+
+<div id="menu">
+	<h1>BBC Моторс</h1>
+	<div class="navi">
+	<ul>
+		<li<%= ' class="current"' if params[:controller] == 'admin/pages' %>><a href="/admin/pages/">Страницы</a></li>
+		<li<%= ' class="current"' if params[:controller] == 'admin/posts' %>><a href="/admin/posts/">Новости</a></li>
+		<li<%= ' class="current"' if params[:controller] == 'admin/banners' %>><a href="/admin/banners/">Баннеры</a></li>
+		<li<%= ' class="current"' if (params[:controller] == 'admin/items' && !params[:type]) %>><a href="/admin/items/">Товары</a></li>
+		<li<%= ' class="current"' if (params[:controller] == 'admin/items' && (params[:type] == 'equip' || params[:type] == 'accessories')) %>><a href="/admin/items/?type=accessories">Аксессуары</a></li>
+		<li<%= ' class="current"' if params[:controller] == 'admin/albums' %>><a href="/admin/albums/">Альбомы</a></li>
+    </ul>
+	</div>
+	<div class="arrow">
+		<a href="/">Посмотреть сайт</a>
+	</div>
+</div>
+
+
+<%= yield :layout %>
+<!--
+<div class="container prepend-top">
+	<h1>Панель управления</h1>
+	<hr/>
+	<h4><%= link_to 'Страницы', admin_pages_path %> <%= link_to 'Новости', admin_posts_path %> <%= link_to 'Баннеры', admin_banners_path %></h4>
+	<hr/>
+	<h2><%= yield :actions %></h2>
+	<hr/>
+	
+	<div class="span-24"></div>
+	<div class="span-9 last"></div>
+
+</div>
+</div>
+-->
+</body>
+</html>

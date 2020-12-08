@@ -1,0 +1,412 @@
+--- 
+pages_019: 
+  permalink: test_drive
+  updated_at: 2010-02-09 17:51:22
+  top_menu: 
+  title: "\xD0\xA2\xD0\xB5\xD1\x81\xD1\x82-\xD0\xB4\xD1\x80\xD0\xB0\xD0\xB9\xD0\xB2\xD1\x8B"
+  published: "1"
+  template: ""
+  left_menu: 
+  id: "19"
+  underlined: 
+  content: "<p>\r\n\
+    \t\xD0\xA1\xD1\x8E\xD0\xB4\xD0\xB0 \xD0\xBF\xD0\xB8\xD1\x88\xD0\xB5\xD0\xBC \xD0\xBF\xD1\x80\xD0\xBE \xD1\x82\xD0\xB5\xD1\x81\xD1\x82-\xD0\xB4\xD1\x80\xD0\xB0\xD0\xB9\xD0\xB2\xD1\x8B \xD0\xB8 \xD0\xBF\xD0\xBE\xD0\xBC\xD0\xB5\xD1\x89\xD0\xB0\xD0\xB5\xD0\xBC \xD1\x84\xD0\xBE\xD1\x82\xD0\xBE.</p>\r\n"
+  position: 
+  parent_id: "3"
+  created_at: 2010-02-09 17:51:22
+pages_008: 
+  permalink: sitemap
+  updated_at: 2010-02-09 15:36:41
+  top_menu: 
+  title: "\xD0\x9A\xD0\xB0\xD1\x80\xD1\x82\xD0\xB0 \xD1\x81\xD0\xB0\xD0\xB9\xD1\x82\xD0\xB0"
+  published: "0"
+  template: 
+  left_menu: "1"
+  id: "8"
+  underlined: 
+  content: 
+  position: "11"
+  parent_id: "1"
+  created_at: 2010-02-09 15:36:41
+pages_020: 
+  permalink: academia
+  updated_at: 2010-02-09 17:52:50
+  top_menu: 
+  title: !binary |
+    0JDQutCw0LTQtdC80LjRjw==
+
+  published: "1"
+  template: ""
+  left_menu: 
+  id: "20"
+  underlined: 
+  content: "<p>\r\n\
+    \t\xD0\xA1\xD1\x8E\xD0\xB4\xD0\xB0 \xD0\xB8\xD0\xBD\xD1\x84\xD0\xBE\xD1\x80\xD0\xBC\xD0\xB0\xD1\x86\xD0\xB8\xD1\x8E \xD0\xBF\xD1\x80\xD0\xBE \xD0\x90\xD0\xBA\xD0\xB0\xD0\xB4\xD0\xB5\xD0\xBC\xD0\xB8\xD1\x8E \xD0\xBF\xD0\xBE\xD1\x81\xD1\x82\xD0\xB8\xD0\xBC...</p>\r\n"
+  position: 
+  parent_id: "3"
+  created_at: 2010-02-09 17:52:50
+pages_009: 
+  permalink: news
+  updated_at: 2010-02-09 15:36:41
+  top_menu: 
+  title: !binary |
+    0J3QvtCy0L7RgdGC0Lg=
+
+  published: "1"
+  template: news
+  left_menu: "1"
+  id: "9"
+  underlined: 
+  content: 
+  position: "1"
+  parent_id: "1"
+  created_at: 2010-02-09 15:36:41
+pages_021: 
+  permalink: drive
+  updated_at: 2010-02-09 17:53:56
+  top_menu: 
+  title: !binary |
+    0JPQvtC90LrQuA==
+
+  published: "1"
+  template: ""
+  left_menu: 
+  id: "21"
+  underlined: 
+  content: "<p>\r\n\
+    \t\xD0\x93\xD0\xBE\xD0\xBD\xD0\xBA\xD0\xB8 &ndash; \xD1\x8D\xD1\x82\xD0\xBE \xD1\x85\xD0\xBE\xD1\x80\xD0\xBE\xD1\x88\xD0\xBE :)</p>\r\n"
+  position: 
+  parent_id: "3"
+  created_at: 2010-02-09 17:53:56
+pages_010: 
+  permalink: motocycle
+  updated_at: 2010-02-09 15:40:05
+  top_menu: 
+  title: !binary |
+    0JzQvtGC0L7RhtC40LrQu9GL
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "10"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "2"
+  created_at: 2010-02-09 15:40:05
+pages_022: 
+  permalink: wear
+  updated_at: 2010-02-09 17:55:26
+  top_menu: 
+  title: !binary |
+    0K3QutC40L/QuNGA0L7QstC60LA=
+
+  published: "1"
+  template: equip
+  left_menu: 
+  id: "22"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "4"
+  created_at: 2010-02-09 17:55:26
+pages_011: 
+  permalink: scooters
+  updated_at: 2010-02-09 15:41:25
+  top_menu: 
+  title: !binary |
+    0KHQutGD0YLQtdGA0Ys=
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "11"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "2"
+  created_at: 2010-02-09 15:41:25
+pages_023: 
+  permalink: service_1
+  updated_at: 2010-02-09 17:57:21
+  top_menu: 
+  title: "\xD0\xA1\xD0\xB5\xD1\x80\xD0\xB2\xD0\xB8\xD1\x81\xD0\xBD\xD1\x8B\xD0\xB5 \xD1\x83\xD1\x81\xD0\xBB\xD1\x83\xD0\xB3\xD0\xB8"
+  published: "1"
+  template: ""
+  left_menu: 
+  id: "23"
+  underlined: 
+  content: "<p>\r\n\
+    \t\xD0\x97\xD0\xB4\xD0\xB5\xD1\x81\xD1\x8C &ndash; \xD0\xBF\xD0\xB0\xD1\x84\xD0\xBE\xD1\x81\xD0\xBD\xD1\x8B\xD0\xB9 \xD1\x82\xD0\xB5\xD0\xBA\xD1\x81\xD1\x82 \xD0\xBF\xD1\x80\xD0\xBE \xD1\x82\xD0\xBE, \xD1\x87\xD1\x82\xD0\xBE \xD0\xB4\xD0\xB8\xD0\xBB\xD0\xB5\xD1\x80\xD1\x81\xD0\xBA\xD0\xB8\xD0\xB9 \xD1\x81\xD0\xB5\xD1\x80\xD0\xB2\xD0\xB8\xD1\x81 \xD1\x81\xD0\xB0\xD0\xBC\xD1\x8B\xD0\xB9 \xD0\xBF\xD0\xB8...\xD1\x82\xD1\x8B\xD0\xB9.</p>\r\n"
+  position: 
+  parent_id: "5"
+  created_at: 2010-02-09 17:57:21
+pages_012: 
+  permalink: snowmotor
+  updated_at: 2010-02-09 15:42:33
+  top_menu: 
+  title: !binary |
+    0KHQvdC10LPQvtGF0L7QtNGL
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "12"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "2"
+  created_at: 2010-02-09 15:42:33
+pages_001: 
+  permalink: company
+  updated_at: 2010-02-09 15:36:41
+  top_menu: 
+  title: "\xD0\x9E \xD0\xBA\xD0\xBE\xD0\xBC\xD0\xBF\xD0\xB0\xD0\xBD\xD0\xB8\xD0\xB8"
+  published: "1"
+  template: 
+  left_menu: 
+  id: "1"
+  underlined: 
+  content: 
+  position: "1"
+  parent_id: "0"
+  created_at: 2010-02-09 15:36:41
+pages_024: 
+  permalink: original
+  updated_at: 2010-02-09 17:59:10
+  top_menu: 
+  title: !binary |
+    0J7RgNC40LPQuNC90LDQu9GM0L3Ri9C1
+
+  published: "1"
+  template: equip
+  left_menu: 
+  id: "24"
+  underlined: 
+  content: "<p>\r\n\
+    \t\xD0\xA2\xD0\xBE\xD0\xBB\xD1\x8C\xD0\xBA\xD0\xBE \xD0\xBE\xD1\x80\xD0\xB8\xD0\xB3\xD0\xB8\xD0\xBD\xD0\xB0\xD0\xBB\xD1\x8C\xD0\xBD\xD1\x8B\xD0\xB5 \xD0\xB7\xD0\xB0\xD0\xBF\xD1\x87\xD0\xB0\xD1\x81\xD1\x82\xD0\xB8! \xD0\x9D\xD0\xB8\xD0\xBA\xD0\xB0\xD0\xBA\xD0\xBE\xD0\xB3\xD0\xBE &quot;\xD0\xBA\xD0\xBE\xD0\xBB\xD1\x85\xD0\xBE\xD0\xB7\xD0\xB0&quot;!</p>\r\n"
+  position: 
+  parent_id: "6"
+  created_at: 2010-02-09 17:59:10
+pages_013: 
+  permalink: kvadro
+  updated_at: 2010-02-09 15:43:10
+  top_menu: 
+  title: !binary |
+    0JrQstCw0LTRgNC+0YbQuNC60LvRiw==
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "13"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "2"
+  created_at: 2010-02-09 15:43:10
+pages_002: 
+  permalink: production
+  updated_at: 2010-02-09 15:36:41
+  top_menu: 
+  title: !binary |
+    0J/RgNC+0LTRg9C60YbQuNGP
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "2"
+  underlined: 
+  content: 
+  position: "2"
+  parent_id: "0"
+  created_at: 2010-02-09 15:36:41
+pages_025: 
+  permalink: no_original
+  updated_at: 2010-02-09 18:01:29
+  top_menu: 
+  title: "\xD0\x9D\xD0\xB5 \xD0\xBE\xD1\x80\xD0\xB8\xD0\xB3\xD0\xB8\xD0\xBD\xD0\xB0\xD0\xBB\xD1\x8C\xD0\xBD\xD1\x8B\xD0\xB5"
+  published: "1"
+  template: equip
+  left_menu: 
+  id: "25"
+  underlined: 
+  content: "<p>\r\n\
+    \t\xD0\xA4\xD1\x83, &quot;\xD0\xBA\xD0\xBE\xD0\xBB\xD1\x85\xD0\xBE\xD0\xB7&quot;...</p>\r\n"
+  position: 
+  parent_id: "6"
+  created_at: 2010-02-09 18:01:29
+pages_014: 
+  permalink: motodirt
+  updated_at: 2010-02-09 15:43:52
+  top_menu: 
+  title: !binary |
+    0JzQvtGC0L7QstC10LfQtNC10YXQvtC00Ys=
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "14"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "2"
+  created_at: 2010-02-09 15:43:52
+pages_003: 
+  permalink: events
+  updated_at: 2010-02-09 15:36:41
+  top_menu: 
+  title: !binary |
+    0JzQtdGA0L7Qv9GA0LjRj9GC0LjRjw==
+
+  published: "1"
+  template: 
+  left_menu: 
+  id: "3"
+  underlined: 
+  content: 
+  position: "3"
+  parent_id: "0"
+  created_at: 2010-02-09 15:36:41
+pages_026: 
+  permalink: konserv
+  updated_at: 2010-02-09 18:03:12
+  top_menu: 
+  title: !binary |
+    0JrQvtC90YHQtdGA0LLQsNGG0LjRjw==
+
+  published: "1"
+  template: ""
+  left_menu: 
+  id: "26"
+  underlined: 
+  content: "<p>\r\n\
+    \t\xD0\xA2\xD1\x83\xD1\x82 \xD0\xBE \xD1\x82\xD0\xBE\xD0\xBC, \xD1\x87\xD1\x82\xD0\xBE \xD1\x83 \xD0\xBD\xD0\xB0\xD1\x81 \xD0\xBC\xD0\xBE\xD0\xB6\xD0\xBD\xD0\xBE \xD1\x87\xD1\x82\xD0\xBE-\xD1\x82\xD0\xBE \xD0\xB7\xD0\xB0\xD0\xBA\xD0\xBE\xD0\xBD\xD1\x81\xD0\xB5\xD1\x80\xD0\xB2\xD0\xB8\xD1\x80\xD0\xBE\xD0\xB2\xD0\xB0\xD1\x82\xD1\x8C, \xD0\xBD\xD0\xB0\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD0\xBE...</p>\r\n"
+  position: 
+  parent_id: "5"
+  created_at: 2010-02-09 18:03:12
+pages_015: 
+  permalink: generators
+  updated_at: 2010-02-09 15:44:20
+  top_menu: 
+  title: !binary |
+    0JPQtdC90LXRgNCw0YLQvtGA0Ys=
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "15"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "2"
+  created_at: 2010-02-09 15:44:20
+pages_004: 
+  permalink: accessories
+  updated_at: 2010-02-09 15:36:41
+  top_menu: 
+  title: !binary |
+    0JDQutGB0YHQtdGB0YHRg9Cw0YDRiw==
+
+  published: "1"
+  template: equip
+  left_menu: 
+  id: "4"
+  underlined: 
+  content: 
+  position: "4"
+  parent_id: "0"
+  created_at: 2010-02-09 15:36:41
+pages_016: 
+  permalink: supersport
+  updated_at: 2010-02-09 19:01:53
+  top_menu: 
+  title: !binary |
+    0KHRg9C/0LXRgNGB0L/QvtGA0YI=
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "16"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "10"
+  created_at: 2010-02-09 15:45:46
+pages_005: 
+  permalink: accessories
+  updated_at: 2010-02-09 15:36:41
+  top_menu: 
+  title: !binary |
+    0KHQtdGA0LLQuNGB
+
+  published: "1"
+  template: 
+  left_menu: 
+  id: "5"
+  underlined: 
+  content: 
+  position: "5"
+  parent_id: "0"
+  created_at: 2010-02-09 15:36:41
+pages_017: 
+  permalink: road_moto
+  updated_at: 2010-02-09 15:48:15
+  top_menu: 
+  title: !binary |
+    0JTQvtGA0L7QttC90YvQtQ==
+
+  published: "1"
+  template: shop
+  left_menu: 
+  id: "17"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "10"
+  created_at: 2010-02-09 15:48:15
+pages_006: 
+  permalink: details
+  updated_at: 2010-02-09 15:36:41
+  top_menu: 
+  title: !binary |
+    0JfQsNC/0YfQsNGB0YLQuA==
+
+  published: "1"
+  template: 
+  left_menu: 
+  id: "6"
+  underlined: 
+  content: 
+  position: "6"
+  parent_id: "0"
+  created_at: 2010-02-09 15:36:41
+pages_018: 
+  permalink: history
+  updated_at: 2010-02-09 17:49:44
+  top_menu: 
+  title: !binary |
+    0JjRgdGC0L7RgNC40Y8=
+
+  published: "1"
+  template: ""
+  left_menu: 
+  id: "18"
+  underlined: 
+  content: ""
+  position: 
+  parent_id: "1"
+  created_at: 2010-02-09 17:48:37
+pages_007: 
+  permalink: contacts
+  updated_at: 2010-02-09 15:38:49
+  top_menu: 
+  title: "\xD0\x9A\xD0\xBE\xD0\xBD\xD1\x82\xD0\xB0\xD0\xBA\xD1\x82\xD0\xBD\xD0\xB0\xD1\x8F \xD0\xB8\xD0\xBD\xD1\x84\xD0\xBE\xD1\x80\xD0\xBC\xD0\xB0\xD1\x86\xD0\xB8\xD1\x8F"
+  published: "0"
+  template: shop
+  left_menu: "1"
+  id: "7"
+  underlined: 
+  content: ""
+  position: "10"
+  parent_id: "1"
+  created_at: 2010-02-09 15:36:41

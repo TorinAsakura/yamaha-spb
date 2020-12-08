@@ -1,0 +1,111 @@
+.container_w540 {
+	width: 540px;
+	float: left;
+}
+	.visual_info {
+		float: left;
+		margin-top: 10px;
+		position: relative;
+		z-index: 0;
+		overflow: hidden;
+		width: 538px;
+		border: solid 1px #CBCACA;
+	}
+	.visual_info .gallery {margin: 15px 0px 0px 46px;width:540px;height:360px;}
+
+	.visual_info .gallery img {
+		width: 100px;
+		height: 100px;
+		margin-right: 15px;
+		margin-bottom: 15px;
+		
+	}
+	
+.vinfo_buttons {
+	height: 27px;
+	margin-bottom: 10px;
+}
+	.visual_info_switch {
+		float: left;
+		padding: 5px 25px;
+		padding-top: 3px;
+		border: solid 1px #CBCACA;
+		border-top: none;
+		
+	}
+	.visual_info_switch a {
+		display: block;
+		float: left;
+		padding: 0px 2px;
+		text-decoration: none;
+		border-bottom: dashed 1px;
+	}
+	.visual_info_switch a:hover {
+		color: #d52b1e;
+	}
+	.visual_info_switch .color_label {
+		display: block;
+		float:left;
+		line-height: 24px;
+		margin-right: 10px;
+		color: #bcbdbc;
+		font-size: 12px;
+		font-weight: bold;
+	}
+	.visual_info_switch .color {
+		display: block;
+		margin: 0px 3px;
+		margin-top: 2px;
+		width: 20px;
+		height: 20px;
+		background-color: #FF0;
+		border: solid 1px #CBCACA;
+		cursor: pointer;
+	}
+	.visual_info_switch .color:hover {
+		border: solid 1px #d52b1e;
+	}
+	.visual_info_download {
+		float: right;
+	}
+	.visual_info_download a {
+		font-size: 10px;
+		line-height: 11px;
+		background-image: url("../images/load_image.gif");
+		background-repeat: no-repeat;
+		padding: 0px 25px;
+		height: 24px;
+		display: block;
+		text-decoration: none;
+		float: right;
+	}
+	.visual_info_download a:hover {
+		background-color: #f0f0f0;
+		color: #1e1e1e;
+	}
+	
+.vinfo_arrow_right, .vinfo_arrow_left {
+		position: absolute;
+		background-color: #F1F1F2;
+		width: 22px;
+		height: 34px;
+		background-repeat: no-repeat;
+		background-position: left center;
+		display: block;
+		margin-top: 180px;
+	}
+	.vinfo_arrow_right {
+		display: block;
+		z-index: 100;
+		right: 0px;
+		background-image: url("../images/vinfo_arrow_right.gif");
+	}
+	.vinfo_arrow_left {
+		display: block;
+		z-index: 100;
+		left: 0px;
+		background-image: url("../images/vinfo_arrow_left.gif");
+	}
+	.vinfo_arrow_right:hover, .vinfo_arrow_left:hover {
+		background-color: white;
+	}

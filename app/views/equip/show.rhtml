@@ -1,0 +1,77 @@
+<%= render :partial => "breadcrumbs" %>
+<div class="red_split_line"></div>
+
+<div class="container_p100">
+		<!-- Экипировка -->
+			<ul class="equip_filter filter_color_2">
+						<li><h1 class="equip_2"><%= @page.ancestors.first.title %></h1></li>
+					    <% @page.ancestors.each do |a| %>
+						<li>
+											<ul class="equip_filter_sublist">
+											  <% a.children.each do |c| %>
+											    <% if params[:path].include? c.permalink %>
+												  <li><a class="current" href="/<%= c.full_permalink %>"><%= c.title %></a></li>
+											    <% else %>
+											      <li><a href="/<%= c.full_permalink %>"><%= c.title %></a></li>
+											    <% end %>
+											   <% end %>
+
+											</ul>
+
+											  
+
+											</li>
+											
+				          <% end %>
+							<% if @page.children.count > 0 %>
+							<li>
+							<ul class="equip_filter_sublist">
+								<% @page.children.each do |c| %>
+								<li><a href="/<%= c.full_permalink %>"><%= c.title %></a></li>
+								<% end %>
+							</ul>
+							<div class="filter_bottom_arrow"></div><% arrow = 1 %>
+							</li>
+							<% else %>
+							<% if @related_items.length > 0 %>
+							<li>
+							<ul class="equip_filter_sublist">
+								<li><a href="/<%= @page.full_permalink %>">Все</a></li>
+								<% @related_items.each do |i| %>
+								<% if i.id == params[:related_item_id].to_i %>
+								<li><p><%= i.title %></p></li>
+								<% else %>
+								<li><a href="<%= "?related_item_id=#{i.id.to_i}" %>"><%= i.title %></a></li>
+								<% end %>
+								<% end %>
+								<% if @related_items.length > 0 %>
+								<li><a href="<%= "?universal=true" %>">Универсальные</a></li>
+								<% end %>
+						    </ul>
+							<% if !arrow %><div class="filter_bottom_arrow"></div><% end %>
+						    </li>
+							<% else %>
+					   		  <% Item.find_all_by_page_id(@page_ids, :group => "vendor") do |i| %>
+				    		  	  <li><a href="?vendor=<%=i.vendor%>"><%= i.vendor %></a></li>
+							  <% end %>
+							<% end %>
+							<% end %>
+
+
+						</ul>			
+
+										<div class="clear"></div>
+			<div class="container_p100">
+				<h3><%= @page.title %></h3><br/>
+				<ul class="equip_images_list">
+				<% @items.each do |item| %>
+				<% if !params[:vendor] || params[:vendor] == item.vendor %>
+				<li><a href="/<%= item.page.full_permalink+"/"+item.id.to_s %>"><%= '<div class="new_item"></div>' if item.new == true %><img src="<%= item.image.url %>" /><br/><%= item.title %></a></li>
+				<% end %>
+				<% end %>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			
+		<!-- Экипировка - конец -->
+		</div>

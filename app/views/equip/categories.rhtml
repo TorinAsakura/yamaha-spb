@@ -1,0 +1,18 @@
+<%= render :partial => "breadcrumbs" %>
+	<div class="left_menu_187">
+		<%= render :partial => "menu" %>
+	</div>
+	<div class="container_p100 left_menu_187_margin">
+			<!-- Экипировка -->
+				<ul class="equip_list">
+				<% @page.children.each do |p| %>
+				  <%= p.content %>
+				<% end %>
+				</ul>
+
+				<div class="text container_w480 margin_15">
+					<%= @page.content %>
+				</div>
+
+			<!-- Экипировка - конец -->
+	</div>
