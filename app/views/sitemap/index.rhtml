@@ -1,0 +1,92 @@
+<%
+  def tree(pages, model, name, level=0, init=true)
+      html = ""
+      # The "Root" option is added
+      # so the user can choose a parent_id of 0
+      if init
+          # Add "Root" to the options
+      #    html << "<select name=\"#{model}[#{name}]\" id=\"#{model}_#{name}\">\n"
+      #    html << "\t<option value=\"0\""
+#          html << " selected=\"selected\"" if selected && selected.parent_id == 0
+      #    html << ">-</option>\n"
+	   html << '<div class="sitemap_content">'
+     end
+	  #if level == 1
+	#	html << '<div class="sitemap_content">'
+	  #end
+      
+      if pages.length > 0
+	html << "<ul>"
+        level += 1 # keep position
+		
+		#html << "<a>#{pages.first.title}</a>" unless pages.first.parent
+        pages.collect do |p|
+         # html << "\t<option value=\"#{p.id}\" style=\"padding-left:#{level * 10}px\""
+          #html << ' selected="selected"' if selected && p.id == selected.parent_id
+          html << "<li><a href='/" 
+	      html << "store/" if p.template == 'shop'
+	 	  html << "#{p.full_permalink}'>#{p.title}</a></li>\n"
+          html << tree(p.children, model, name, level, false)
+        end
+		html << "</ul>"
+      end
+	 # if level == 1
+	#	html << '</div>'
+	  #end
+	  
+      html << "</div>\n" if init
+      return html
+  end
+%>
+		
+		<h1 class="sitemap_head">Карта сайта</h1>
+		<%= tree(@pages, 'page', 'page') %>
+		<!--
+		<div class="sitemap_content">
+			<a class="current" href="#">Главная страница</a><br />
+			
+			<a href="#">Продукция</a>
+			<ul>
+			<li><a href="#">Мотоциклы</a>
+				<ul>
+				<li><a href="#">Новинки 2010</a>
+					<ul>
+					<li><a href="#"><i>YZ250F</i></a></li>
+					<li><a href="#"><i>YZ250F</i></a></li>
+					<li><a href="#"><i>YZ250F</i></a></li>
+					<li><a href="#"><i>YZ250F</i></a></li>
+					</ul>
+				</li>
+				<li><a href="#">Суперспорт</a></li>
+				<li><a href="#">Кроссовые</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Снегоходы</a></li>
+			<li><a href="#">Квадроциклы</a></li>
+			<li><a href="#">Мотовездеходы</a></li>
+			</ul>
+		</div>
+		
+		<div class="sitemap_content">
+			<a class="size_13 current" href="#"><b>Продукция</b></a>
+			<ul>
+			<li><a class="current" href="#">Мотоциклы</a>
+				<ul>
+				<li><a class="current" href="#">Новинки 2010</a>
+					<ul>
+					<li><a href="#"><i>YZ250F</i></a></li>
+					<li><a href="#"><i>YZ250F</i></a></li>
+					<li><a href="#"><i>YZ250F</i></a></li>
+					<li><a href="#"><i>YZ250F</i></a></li>
+					</ul>
+				</li>
+				<li><a href="#">Суперспорт</a></li>
+				<li><a href="#">Кроссовые</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Снегоходы</a></li>
+			<li><a href="#">Квадроциклы</a></li>
+			<li><a href="#">Мотовездеходы</a></li>
+			</ul>
+		</div>
+        -->

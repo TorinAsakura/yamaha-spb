@@ -1,0 +1,51 @@
+<%= render :partial => "shared/left_menu" %>
+
+
+
+<div class="text container_p100"><div class="margin_15">
+	<h1><%= @page.page_title %></h1>
+	<%= @page.content %>
+	<% if @page.permalink =='contacts' %>
+	<%= render :partial => "forms/contacts" %>
+	<% end %>
+	<% if @page.permalink == 'video' %>
+	<%
+	require 'youtube_g'
+	client = YouTubeG::Client.new
+	response = client.videos_by(:user => "man31337d")
+	keywords = []
+	response.videos.each do |video|
+		unless keywords.include? video.keywords
+			keywords << video.keywords
+		end
+	end
+	%>
+	<br /><br />
+	<% if !params[:cat] %>
+	  <% keywords.each do |k| %>
+		<%= link_to k, "?cat=#{k}" %><br/>
+	  <% end %>
+	<% else %>
+	
+	  <% if params[:video] %>
+    	<% video = client.video_by(params[:video]) %>
+		
+      <% else %>
+	    <% response = client.videos_by(:user => "man31337d", :keywords => params[:cat]) %>
+		<% video = response.videos.first %>
+        
+	  <% end %>
+	
+		<%= video.embed_html %>
+		<% response.videos.each do |video| %>
+		  <%= link_to(image_tag(video.thumbnails.first.url, :style => "margin: 5px;"), "?cat=#{params[:cat]}&video=#{video.unique_id}") %> <%= video.title %>
+
+		
+      <% end %>
+	<% end %>
+	
+<% end %>
+</div></div>
+
+
+</div>

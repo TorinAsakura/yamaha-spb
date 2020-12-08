@@ -1,0 +1,38 @@
+<div class="left_menu_187">
+			<!-- меню слева -->
+			<ul class="catalog_menu">
+			<h2>Аксесуары для <span class="red"><a href="/store/<%=@item.page.full_permalink %>/<%=@item.id%>"><%= @item.title %></a></span></h2>
+			<a href="/store/<%=@item.page.full_permalink %>/<%=@item.id%>"><img src="<%= @item.image.url %>" /></a>
+			<% @parent_pages.each do |p| %>
+			<% if p.id == params[:cat] %>
+			<li><p><%= p.title %></p></li>
+			<% else %>
+			<li><a href="<%= @item.id %>?show=accessories&cat=<%= p.id %>"><%= p.title %></a></li>
+			<% end %>
+			<% end %>
+
+
+			</ul>
+			<!-- меню слева - конец -->
+		</div>
+		
+		<div class="container_p100 left">
+		<!-- Аксессуары - картинки -->
+			<div class="accessories_gray_vline"></div>
+
+			<div class="left container_w450">
+				<ul class="accessories_list">
+					<p><%= @accessory_page ? @accessory_page.title : @equip_page.title %></p>
+					<% @accessories.each do |item| %>
+					<% if item.page %><li><a href="/<%= item.page.full_permalink %>/<%= item.id %>"><img src="<%= item.image.url %>" /></a></li><% end %>
+					<% end %>
+			
+				<div class="gray_split_line"></div>
+				</ul>
+
+				<%= will_paginate @accessories %>
+			</div>
+			
+			
+		<!-- Аксессуары - картинки - конец -->
+		</div>

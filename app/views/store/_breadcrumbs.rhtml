@@ -1,0 +1,8 @@
+<ul class="links_tree">
+	<li><a href="/">Главная</a></li>
+	    <% @page.ancestors.each do |p| %>
+        <li><a href="/store/<%= p.full_permalink %>"><%= p.title %></a></li>
+        <% end %>
+        <li><p><%= @page.title %></p></li>
+
+</ul>

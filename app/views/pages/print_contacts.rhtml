@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<%= stylesheet_link_tag  "common", "container", "head", "foot", "small_blocks", "main_menu", "horizontal_menu",  "left_menu", "form", "left_menu_items",  "main_page_content", "models_list",  "tech_info_content", "visual_info_content",  "equip_content", "default_page_content", "contact_content", "compare_content", "accessories_content", "application", "sitemap_content", :concat => true, :cache => "style", :media => "all" %>
+<%= javascript_include_tag "jquery", "jrails", "margins", "resize", "compare_scroll", "application" %>
+</head>
+<body style="background: none;">
+<div class="yamaha_logo left" style="border: none;"><% if params[:controller] != 'home' %><a href="/"><% end %><img src="/images/YAMAHA_Logo.png" /><% if params[:controller] != 'home' %></a><% end %></div>
+<div class="clear"></div>
+<div class="text" style="float: none;">
+	
+
+	<h2>
+		Наш адрес</h2>
+	196084, Санкт-Петербург, Ново-Рыбинская ул.,<br />
+	дом 19-21, лит А.
+
+	<h2>
+		Режим работы салона</h2>
+    пн-пт: с 9.00 до 21.00<br />
+    сб, вс: с 10.00 до 21.00<br/>
+	<h2>
+		Режим работы сервиса</h2>
+	с 9.00 до 21.00 без выходных<br />
+	<br />
+
+	<h2>
+		Контактные телефоны</h2>
+	Салон: (812) 337-10-41 (многоканальный).<br />
+	Сервис: (812) 335-97-57
+	
+	&nbsp;</div>
+<!--меню-->
+<div class="contact_form_div hidden">
+<ul class="visual_info_menu contact_menu container_w480">
+	<li class="salon">
+		<p>Салон</p>
+	</li>
+	<li class="details">
+		<a>Отдел запчастей</a></li>
+</ul>
+<form class="default_form contact_form" name="contact_form" method="POST" action="/forms/contact/">
+	
+	<label>Представьтесь, пожалуйста<br />
+	<input type="hidden" name="department" style="display: none;" />
+	<input type="text" name="name" /></label> <label>Эл. почта<br />
+	<input name="email" type="text" /> </label> <label><br />
+	Комментарии<br />
+	<textarea name="body"></textarea></label> <a class="button_red margin_10_0" href="javascript:document.contact_form.submit();">Отправить....</a><br />
+	&nbsp;
+</form>
+</div>
+	<a class="button_gray margin_10_0 hidden" href="#"><span class="left_item"></span>Печать....<span class="right_item"></span></a>
+<!-- контент - конец -->
+
+
+<!--	<div class="contact_map left">-->
+		<img height="500" src="/images/map.gif" />
+	
+
+<script type="text/javascript">$(".default_page_head").hide();</script>
+
+</body>
+</html>

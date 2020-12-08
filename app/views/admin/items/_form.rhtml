@@ -1,0 +1,304 @@
+<%	
+content_for :js do
+%>
+	<link rel="stylesheet" href="/stylesheets/admin/colorpicker.css">
+	<script type="text/javascript" src="/javascripts/admin/colorpicker/colorpicker.js"></script>
+    <script type="text/javascript" src="/javascripts/admin/colorpicker/eye.js"></script>
+    <script type="text/javascript" src="/javascripts/admin/colorpicker/utils.js"></script>
+    <script type="text/javascript" src="/javascripts/admin/colorpicker/layout.js?ver=1.0.2"></script>
+
+	<%= javascript_include_tag 'admin/swfupload' %>
+	<script type="text/javascript" src="/javascripts/admin/swfupload.queue.js"></script>
+	<script type="text/javascript" src="/javascripts/admin/fileprogress.js"></script>
+	<script type="text/javascript" src="/javascripts/admin/handlers.js"></script>
+	
+	<script type="text/javascript">
+		var swfu, swfu_color;
+		
+		// Dom Ready
+		$(document).ready(function() {
+			// Setup SWFU object
+		
+			swfu = new SWFUpload ({
+				flash_url : "/flash/swfupload.swf",
+				flash9_url : "/flash/swfupload_fp9.swf",
+				upload_url : "<%= admin_photos_path %>",
+				post_params : {"item_id": "<%= @item.id %>"},
+				file_size_limit : "100 MB",
+				file_types : "*.jpg;*.png;*.gif;*.jpeg",
+				file_types_description : "All Image Files",
+				file_upload_limit : 100,
+				file_queue_limit : 0,
+				custom_settings : {
+					progressTarget : "fsUploadProgress",
+					cancelButtonId : "btnCancel"
+				},
+				debug: false,
+
+				// Button settings
+				button_width: 61,
+				button_height: 22,
+				button_placeholder_id: "spanButtonPlaceHolder",
+				button_image_url: "/images/admin/upload_button.png",
+
+				swfupload_preload_handler : preLoad,
+								swfupload_load_failed_handler : loadFailed,
+								file_dialog_start_handler : fileDialogStart,
+								file_queued_handler : fileQueued,
+								file_queue_error_handler : fileQueueError,
+								file_dialog_complete_handler : fileDialogComplete,
+								upload_start_handler : uploadStart,
+								upload_progress_handler : uploadProgress,
+								upload_error_handler : uploadError,
+								upload_success_handler : uploadSuccess,
+								upload_complete_handler : uploadComplete,
+				
+
+			});
+
+			<% if @item.page && @item.page.template == 'shop' %>
+			swfu_color = new SWFUpload({
+				flash_url : "/flash/swfupload.swf",
+				flash9_url : "/flash/swfupload_fp9.swf",
+				upload_url : "<%= admin_photos_path %>",
+				post_params : {"color" : "ffffff", "item_id": "<%= @item.id %>"},
+				file_size_limit : "100 MB",
+				file_types : "*.jpg;*.png;*.gif;*.jpeg",
+				file_types_description : "All Image Types",
+				file_upload_limit : 100,
+				file_queue_limit : 0,
+				custom_settings : {
+					progressTarget : "fsUploadProgress_color",
+					cancelButtonId : "btnCancel_color"
+				},
+				debug: false,
+
+				// Button settings
+				button_width: 61,
+				button_height: 22,
+				button_placeholder_id: "spanButtonPlaceHolder_color",
+				button_image_url: "/images/admin/upload_button.png",
+
+				swfupload_preload_handler : preLoad,
+								swfupload_load_failed_handler : loadFailed,
+								file_dialog_start_handler : fileDialogStart,
+								file_queued_handler : fileQueued,
+								file_queue_error_handler : fileQueueError,
+								file_dialog_complete_handler : fileDialogComplete,
+								upload_start_handler : uploadStart,
+								upload_progress_handler : uploadProgress,
+								upload_error_handler : uploadError,
+								upload_success_handler : uploadSuccess,
+								upload_complete_handler : uploadComplete,
+				
+
+			});
+			<% end %>
+			
+		});
+
+	</script>
+<% end %>
+<div id="form" class="prepend-top">
+	<%= error_messages_for :item %>
+	<% form_for [:admin, @item], :html => {:multipart => true} do |f| -%>
+	<div class="left">
+	<%= f.label :title, "Название" %><br/>
+    <%= f.text_field :title %><br/>
+	<%= f.label :page_id, "Категория" %><br/>
+	<% if @item.page %>
+	<%= item_category_select(Page.find(:all, :conditions => "(parent_id IS NULL or parent_id=0) AND (template='shop' OR template='equip')"),
+	                        'page', 'page_id', @item.page)  %><br/>
+	<% else %>
+	<%= item_category_select(Page.find(:all, :conditions => "(parent_id IS NULL or parent_id=0) AND (template='shop' OR template='equip')"),
+	                        'page', 'page_id', @item.page)  %><br/>
+	
+	<% end %>
+	<%= f.label :price, "Цена" %><br/>
+	<%= f.text_field :price %><br/>
+	<%= f.label :price_description, "Ценовая информация" %><br/>
+	<%= f.text_area :price_description, :rows => 2 %><br />
+	<%= f.label :description, "Описание" %><br/>
+	<%= ckeditor_textarea("item", "description", :width => '600px', :height => '120px', :toolbar => "Basic") %>
+	<% if (@item.page && @item.page.template == 'equip') || params[:type] == 'equip' %>
+		<%= f.label :vendor, "Производитель" %><br />
+		<%= f.text_field :vendor %><br />
+ 		<%= f.label :popular, "Популярный" %><br />
+		<%= f.check_box :popular %><br />
+		<%= f.label :new, "Новый" %><br />
+		<%= f.check_box :new %><br />
+		<%= f.label :universal, "Универсальный" %><br />
+		<%= f.check_box :universal %><br />
+	<% end %>
+	
+	</div>
+	<div class="right image">
+		<label>Картинка</label><br/> <%= f.file_field :image %><br class="clear" />
+		<%= image_tag @item.image.url %><br class="clear" />
+		<label>Баннер</label> <br /><%= f.file_field :banner %><br />
+		<label>Ссылка с баннера</label> <%= f.text_field :banner_link %>
+		<br/>
+		<% if @item.page && @item.page.template == 'shop' %>
+		<label>Буклет</label> <br /><%= f.file_field :pdf %><br />
+		<label>Название буклета:</label> <%= f.text_field :pdf_title %>
+		<%= @item.pdf_title %> <%= (@item.pdf_file_size.to_f / 1.megabyte).to_f.round(2) if @item.pdf %> <%= 'МБ' if @item.pdf %>
+		<% end %>
+	</div>
+		
+	
+	<div class="clear"></div>
+	<%= f.check_box :published %> <%= f.label :published, "Показывать на сайте" %> &nbsp;<%= f.submit "Сохранить", :class => "button" %>
+	<%= link_to "Удалить", admin_item_path(@item), :method => :delete, :confirm => "Данный товар будет удален. Хотите продолжить?", :class => "button" %>
+	<div class="clear"></div>
+	<hr style="margin-left:-50px;"/>
+	
+	<div id="item-nested-forms">
+		<ul>
+			<% if (@item.page && @item.page.template == 'shop') %>
+	        <li><a href="#review">Обзор</a></li>
+	        <li><a href="#ttx">Техническая информация</a></li>
+	        <li><a href="#photo">Галерея</a></li>
+	        <li><a href="#color">Цвета</a></li>
+			<li><a href="#swf">Вид 360</a></li>
+	        <li><a href="#video">Видео</a></li>
+			<% else %>
+			<li><a href="#review">Обзор</a></li>
+			<li><a href="#photo">Галерея</a></li>
+			<li><a href="#items">Товары</a></li>
+			<% end %>
+			
+	    </ul>
+		<div class="clear"></div>
+		<div style="height: 20px;"></div>
+		<% if (@item.page && @item.page.template == 'equip') || params[:type] == 'equip' %>
+		<div id="items" title="items">
+			<div id="related_items_list">
+			<% @item.related_items.each do |item| %>
+			<% item_real = Item.find(item.related_item_id) %>
+		    <li id="li_related_item_<%=item.related_item_id%>"><%= item_real.title %> <%= link_to_remote 'Удалить', :url => '/admin/items/remove_item_relation/'+item.id.to_s %></li>
+			<% end %>
+			</div>
+			<select id="related_item">
+				<% Item.all.each do |item| %>
+				<% unless @item.related_items.find_by_related_item_id(item.id) %>
+				<% if item.title %><option id="related_item_<%=item.id%>" value="<%= item.id %>"><%= item.title %></option><% end %>
+				<% end %>
+				<% end %>
+			</select> <%= link_to_remote 'Добавить', :url => '/admin/items/add_related_item_to_item/'+@item.id.to_s, :with => "'related_item_id='+$('#related_item').val()" %>
+		</div>
+		<% end %>
+		<div id="review" title="review">
+	 		<%= ckeditor_textarea("item", "review", :width => '800px', :height => '300px') %>
+	 	</div>
+		<div id="photo" title="photo">
+			<div class="list-photo">
+				<% @item.gallery_photos.each do |photo| %>
+				<div class="list-photo-item" id="photo-<%=photo.id%>">
+										<%= image_tag photo.asset.url(:thumb) %><br clear="left" />
+										<%= link_to_remote "Удалить", :url => admin_photo_path(photo), :method => :delete if photo.id %>
+				</div>
+				<% end %>
+			</div>
+			<br clear="all" />
+			<span id="spanButtonPlaceHolder" class="upload_button">Выбрать файл</span>
+			
+				<div class="fieldset flash" id="fsUploadProgress"></div>
+				<span class="legend">Очередь загрузки</span>
+				<span id="btnCancel"></span>
+				<div id="fsUploadProgress"></div>
+				<div id="images">
+				
+				</div>
+
+		</div>
+		<% if (@item.page &&  @item.page.template == 'shop') %>
+		<div id="color" title="color">
+			<div class="list-photo">
+				<% if @item.colour_photos.count > 0 %>
+				<% f.fields_for :colour_photos do |builder| %>
+				  <div class="colour_photos_fields">
+					<label>Цвет</label>
+				  <%= builder.text_field :color, :class => "colorpicked" %><br clear="all" />
+				    <label>Описание</label>
+				  <%= builder.text_field :color_title %>
+				  </div>
+				<% end %>
+				<% end %>
+				<br clear="all" />
+				<% @item.colour_photos.each do |photo| %>
+					<div class="list-photo-item">
+						<div id="photo-<%=photo.id%>">
+					<%= image_tag photo.asset.url(:thumb) if photo.id %><br clear="all">
+					<%= link_to "Удалить", admin_photo_path(photo), :method => :delete if photo.id %>
+					    </div>
+					</div>
+					  
+					
+				<% end %>
+			</div>
+			<br clear="all" />
+			<span id="spanButtonPlaceHolder_color" class="upload_button">Выбрать файл</span>
+			<span id="btnCancel_color"></span>
+				<div class="fieldset flash" id="fsUploadProgress_color"></div>
+				<span class="legend_color">Очередь загрузки:</span>
+				</div>
+			
+				<div>
+					
+					
+				</div>
+			<div id="images">
+				
+			</div>
+
+		</div>
+		<div id="ttx" title="ttx">
+			<p>
+				<h2>Особенности</h2>
+				<%= ckeditor_textarea("item", "features", :width => "600px", :height => "400px", :toolbar => "Basic") %>
+				<% @item.page.parent.ttx_groups.each do |ttx_group| %>
+				    <%= render :partial => 'ttx_group', :locals => {:ttx_group => ttx_group, :f => f} %>
+				  <% end %>
+
+				<div id="tr_for_ttx_group_form">
+				</div>
+				<div class="ttx_div_add_group" style="margin-top:20px;">
+				<a class="ttx_add_group" onclick="ttx_toggle(this);">Добавить группу характеристик</a><br/>
+				<div class="ttx_form_add_group">
+				<%= text_field_tag "ttx_group[title]" %> <%= button_to_remote "Добавить", :url => admin_ttx_groups_path, :with => "'ttx_group[title]='+$('#ttx_group_title').val()+'&ttx_group[page_id]=#{@item.page.parent.id}'+'&ttx_group[no_options]='+$('#ttx_group_no_options').val()" %>
+				</div>
+				</div>
+			  </p>
+
+		</div>
+		
+		<div id="video" title="video">
+			  <p>
+				<%= f.label :video %><br/>
+				<%= f.file_field :video %>
+			  </p>
+			  <p>
+				<%= f.label :youtube_video %>
+				<%= f.text_field :youtube_video %>
+				Б/з
+		</div>
+		<div id="swf" title="swf">
+			  <p>
+				<%= f.label :swf %><br/>
+			    <%= f.file_field :swf %>
+			  </p>
+			<p>
+				<%= f.label :swf_url %><br/>
+			    <%= f.text_field :swf_url %>
+			  </p>
+		</div>
+	
+	</div>
+	</div>
+	
+	<% end %>
+	<%= f.submit "Сохранить", :class => "button" %>
+	<%= link_to "Удалить", admin_item_path(@item), :method => :delete, :confirm => "Данный товар будет удален. Хотите продолжить?", :class => "button" %>
+	<% end -%>
+</div>
+<div class="clear"></div>

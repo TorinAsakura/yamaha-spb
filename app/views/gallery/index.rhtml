@@ -1,0 +1,40 @@
+<% content_for :head do %>
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script src="/AC_RunActiveContent.js" language="javascript"></script>
+<% end %>
+<ul class="links_tree">
+	<li><a href="/">Главная</a></li>
+	<li><a href="/events/">Мероприятия</a></li>
+	<li><p>Фотоальбом</p></li>
+</ul>
+<div class="right">выбор альбома</div>
+<script language="javascript">
+	if (AC_FL_RunContent == 0) {
+		alert("This page requires AC_RunActiveContent.js.");
+	} else {
+		AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+			'width', '100%',
+			'height', '600',
+			'src', '/zoomGallery',
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'align', 'middle',
+			'play', 'true',
+			'loop', 'true',
+			'scale', 'noscale',
+			'wmode', 'opaque',
+			'devicefont', 'false',
+			'id', 'zoomGallery',
+			'bgcolor', '#ffffff',
+			'name', 'zoomGallery',
+			'menu', 'true',
+			'allowFullScreen', 'false',
+			'allowScriptAccess','sameDomain',
+			'movie', '/zoomGallery',
+			'salign', '',
+			'z-index', '-1'
+			); //end AC code
+	}
+</script>
+ 

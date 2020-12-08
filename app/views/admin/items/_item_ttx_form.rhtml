@@ -1,0 +1,6 @@
+<% @item_ttx = item.item_ttxes.find(:first, :conditions => {:ttx_id => ttx.id } )%>
+<% if @item_ttx %>
+<div id="item_ttx_<%=@item_ttx.id%>">
+<%= @item_ttx.value%> <%= link_to_remote "Удалить", :url => admin_item_ttx_path(@item_ttx), :method => :delete, :confirm => "Вы уверены что хотите удалить группу характеристик? Характеристика будет удалена со всех типов техники.", :with => "item_id='#{item.id}'" %>
+</div>
+<% end %>

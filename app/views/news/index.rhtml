@@ -1,0 +1,35 @@
+
+		<%= render :partial => "shared/left_menu" %>
+	
+			
+			<div class="news_archive">
+				<p>Архив новостей
+				<% @years.each do |year| %>
+				   
+				   <%= link_to year.year, news_index_path(:year => year.year) %>
+				<% end %>
+				</p>
+			</div>
+		
+			
+			<div class="text container_w480 bg_white"><div class="margin_15">
+			
+				<h1>Новости</h1>
+				<ul class="news_list">
+				<% for post in @posts %>
+				  <li><%= post.created_at.strftime("%d/%m/%Y") %><br />
+					<%= link_to post.title, news_path(post) %>
+				  </li>
+				<% end %>
+				
+				</ul>
+		
+				<%= will_paginate @posts, :class => "pages" %>
+			
+			</div></div>
+			
+		</div>
+
+
+			
+			

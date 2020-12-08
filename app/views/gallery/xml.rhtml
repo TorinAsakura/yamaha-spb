@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<gallery>
+
+<options>
+	<backgroundColor>000000</backgroundColor>
+	
+	<imageWidth>900</imageWidth>
+	<imageHeight>500</imageHeight>
+	<imageSpaceX>1000</imageSpaceX>
+	<imageSpaceY>800</imageSpaceY>
+	<imageBorderColor>EDEDED</imageBorderColor>
+	<imageBorder>20</imageBorder>
+
+	<imageSmoothing>no</imageSmoothing>
+	<explanation>yes</explanation>
+	<name>BBC MOTOPC</name>
+</options>
+
+<pictures>
+	<% @albums.each do |album| %>
+	<album name = "<%= album.title %>">
+		<% album.album_photos.each do |photo| %>
+		<pic>
+		<bigimage><%= photo.image.url(:big) %></bigimage>
+		<info title="<%= photo.title %>" desc="<%= photo.description %>"/>
+		</pic>
+		<% end %>
+
+	</album>
+	<% end %>
+</pictures>    
+
+</gallery>

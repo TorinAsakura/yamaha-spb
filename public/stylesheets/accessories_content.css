@@ -1,0 +1,73 @@
+.accessories_list {
+	float: left;
+	height: auto;
+}
+	.accessories_list li {
+		border: solid 0px blue;
+		float: left;
+		width: 70px;
+		height: 70px;
+		border-left: solid 1px #CBCBCB;
+		padding: 0px 11px 0px 9px;
+		margin-bottom: 15px;
+		margin-left: -1px;
+	}
+	.accessories_list p {
+		font-weight: bold;
+		margin-bottom: 15px;
+		text-indent: 10px;
+		line-height: 14px;
+		padding-bottom: 2px;
+	}
+	.accessories_list a {
+		text-decoration: none;
+	}
+	.accessories_list a img {
+		border: solid 1px white;
+		max-width: 70px;
+		max-height: 70px;
+	}
+	.accessories_list a:hover img {
+		border: solid 1px #d52b1e;
+	}
+.accessories_gray_vline {
+	float: left;
+	margin-left: 15px;
+	margin-right: 10px;
+	height: 130px;
+	width: 1px;
+	background-color: #CBCBCB;
+}
+.as_3col_margins {
+	margin-right: 10px;
+}
+
+.accessories_selection {
+	background-color: #d52b1e;
+}
+	.accessories_selection a {
+		font-family: 'Trebuchet MS',Helvetica,sans-serif;
+		font-size: 13px;
+		font-weight: bold;
+		text-decoration: none;
+		color: white;
+		border-bottom: dashed 1px white;
+		line-height: 35px;
+		margin-left: 15px;
+	}
+	.accessories_selection a:hover {color: white;}
+	
+.accessories_selection_form {
+	border: solid 5px #E4E5E6;
+	padding: 20px;
+}
+	.accessories_selection_form select, .accessories_selection_form select option {
+		margin: 0px;
+		padding: 0px;
+		color: 58595B;
+		width: 370px;
+		margin-bottom: 10px;
+	}
+	 .accessories_selection_form select option {
+		width: 350px;
+	 }

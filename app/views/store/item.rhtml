@@ -1,0 +1,256 @@
+<% content_for :head do %>
+
+<%= #javascript_include_tag("thickbox-compressed.js") 
+%>
+<%= #stylesheet_link_tag("thickbox") 
+%>
+<%= javascript_include_tag("swfobject") %>
+
+<% end %>
+
+<ul class="links_tree">
+		<li><a href="/">Главная</a></li>
+		<li><a href="/store/production/">Продукция</a></li>
+		<% page = @item.page %>
+		<% html = [] %>
+	    <% while page.parent_id != nil %>
+		<% html << '<li><a href="/store/'+page.full_permalink+'">'+page.title+'</a></li>' %>
+		<% page = page.parent %>
+	    <% end %>
+	    <%= html.reverse.join("") %>
+		<li><%= @item.title %></li>
+		</ul>
+		
+		<!-- серое меню -->
+		<%= render :partial => "shared/hot_links" %>
+		
+		<div class="left_menu_187">
+			<!-- меню слева -->
+			<ul class="catalog_menu">
+			<h1><%= @item.title %></h1>
+			<% if @item.review.length > 0 %><li><% if params[:show] == 'review' %><p>Обзор</p><% else %><a href="?show=review">Обзор</a><% end %></li><% end %>
+			<% if @item.youtube_video.length > 0 || @item.gallery_photos.size > 0 || @item.colour_photos.size > 0 || @item.swf_url.length > 0 %><li><% if params[:show] == 'media' %><p>Узнать больше</p><% else %><a href="?show=media">Узнать больше</a><% end %></li><% end %>
+			<% if @item.item_ttxes.count > 0 %><li><% if params[:show] == 'tech_info' %><p>Техническая информация</p><% else %><a href="?show=tech_info">Техническая информация</a><% end %></li><% end %>
+			<li><a href="/compare/<%= @item.id %>">Сравнить</a></li>
+			<% if RelatedItem.find(:first, :conditions => {:related_item_id => @item.id}) %><li><% if params[:show] == 'accessories' %><p>Аксессуары</p><% else %><a href="?show=accessories">Аксессуары</a><% end %></li><% end %>
+			</ul>
+
+			<!-- цена -->
+			<% if @item.price.length > 0 %>
+			<div class="price_container">
+				<div class="price_tl">Цена</div>
+				<p class="price"><%= @item.price %></p>
+				<p><%= @item.price_description %></p>
+				<div class="price_tr"></div>
+				<div class="price_bl"></div>
+				<div class="price_br"></div>
+
+			</div>
+			<% end %>
+			<!-- тестдрайв -->
+			
+			<% if @item.banner_file_name && @item.banner_file_name.length > 0 %>
+
+			<div class="testdrive">
+
+				<a href="<%= @item.banner_link %>">
+
+					<img src="<%= @item.banner.url %>" width="116" /><br />
+				</a>
+			</div>
+			<% end %>
+			<!-- пдф файл -->
+			<% if @item.pdf_title.length > 0 && @item.pdf_file_name &&  @item.pdf_file_name.length > 0 %>
+			<div class="file_pdf">
+				<p><a href="<%= @item.pdf.url %>"><%= @item.pdf_title %></a> (<%= (@item.pdf_file_size.to_f / 1.megabyte).to_f.round(2) if @item.pdf_file_size %> МБ)</p>
+			</div>
+			<% end %>
+		<!-- меню слева - конец -->
+		</div>
+		
+		<div class="<% if params[:show] == 'tech_info' %>container_100p left_menu_187_margin<% else %>container_w540<% end %>" id="container">
+
+		<!-- галерея, видео, описание -->
+			<!--меню отображения визуальной информации-->
+			<% if params[:show] == "media" %>
+			<ul class="visual_info_menu">
+			<% if @item.gallery_photos.count > 0 %><% params[:view] = 'gallery' if !params[:view] %><li class="tabs<%=@tabs%>"><a<%= ' class="current"' if params[:view] == 'gallery' %> href="?show=media&view=gallery" title="gallery">Галерея</a></li><% end %>
+			<% if @item.colour_photos.count > 0 %><% params[:view] = 'colour' if !params[:view] %><li class="tabs<%=@tabs%>"><a<%= ' class="current"' if params[:view] == 'colour' %> href="?show=media&view=colour" title="colours">Цвета</a></li><% end %>
+			<% if @item.swf_url.length > 0 %><% params[:view] = 'swf' if !params[:view] %><li class="tabs<%=@tabs%>"><a<%= ' class="current"' if params[:view] == 'swf' %> href="?show=media&view=swf" title="swf">Вид 360</a></li><% end %>
+			<% if @item.youtube_video.length > 0 %><% params[:view] = 'video' if !params[:view] %><li class="tabs<%=@tabs%>"><a<%= ' class="current"' if params[:view] == 'video' %> href="?show=media&view=video" title="video">Видео</a></li><% end %>
+
+			</ul>
+			<% if params[:view] == 'gallery' %>
+			<div id="gallery">
+				<% content_for :head do %>
+				<%= javascript_include_tag "jquery.lazyload", "jquerytools.min.js" %>
+				<script type="text/javascript">
+				$("img").lazyload;
+				$(document).ready(function () {
+					
+					$(".scrollable").scrollable({
+						size: 1,
+						clickable: false,
+						
+					});
+					var api = $("div.scrollable").scrollable({api: true});
+					api.onSeek = function() {
+					var imgIndex = api.getPageIndex();
+					$("#big-photo-link").attr('href', $('#scrollable_img_'+imgIndex).attr('src').replace('preview', 'big'));
+
+					}
+				});
+				</script>
+				<% end %>
+				<div class="overlay">
+					<% if (params[:gallery_type] == 'gallery' && @item.gallery_photos.count > 12) || params[:gallery_type] != 'gallery' %>
+					<a class="vinfo_arrow_right browse next <%='disabled' if @item.gallery_photos.count == 1 %>" photoid="1"></a>
+					<a class="vinfo_arrow_left browse prev" photoid="2"></a>
+					<% end %>
+				</div>
+				<div class="visual_info scrollable">
+					<div class="<% if params[:gallery_type] =='gallery' %>gallery<% else %>items<% end %>">
+						<% if params[:photo]
+						@selected_photo = Photo.find(params[:photo])	
+						%>
+						<%= image_tag @selected_photo.asset.url if @selected_photo %>
+						<% end %>
+						<% i = 0 %>
+						<% @item.gallery_photos.each do |p| %>
+						
+						<% if params[:gallery_type] == 'gallery' && @item.gallery_photos.count > 12 %><div class="list"><% end %>
+						<% if params[:gallery_type] == 'gallery' %>
+							<%= link_to image_tag(p.asset.url(:thumb)), @item.id.to_s+"?show=media&view=gallery&gallery_type=slide&photo=#{p.id}" %>
+						<% else %>
+							<%= image_tag(p.asset.url(:preview), :id=> "scrollable_img_#{i}") %>
+						<% end %>
+																	  
+						<% if params[:gallery_type] == 'gallery' && @item.gallery_photos.count > 12 %></div><% end %>
+						<% i+=1 %>
+						<% end %>
+					</div>
+					</div>
+				<div class="vinfo_buttons">
+					<!--ссылка куда-то, в рамочке-->
+					<div class="visual_info_switch">
+
+						<a href="<%= @item.id %>?show=media&view=gallery<% if params[:gallery_type] =='gallery' %>&gallery_type=slide<% else %>&gallery_type=gallery<% end %>"><% if params[:gallery_type] =='gallery' %>Слайдшоу<% else %>Галерея<% end %></a>
+					</div>
+					<!--скачать-->
+					<div class="visual_info_download">
+						<% if params[:gallery_type] != 'gallery' %>
+						<a id="big-photo-link" target="blank" href="<%= @item.gallery_photos.first.asset.url(:big) %>"><b class="font_red">Скачать</b><br />
+						<span class="size_9">1024x768 (135 kb)</span></a>
+						<% end %>
+					</div>
+
+			    </div>
+				
+			</div>
+			<% end %>
+			<% if params[:view] == 'colour' %>
+			<div id="colours">
+				<div class="visual_info">
+				 	<% @item.colour_photos.each do |p| %>
+						  <%= image_tag p.asset.url(:preview), :id => "colorImgScreen" %>
+						<% break %>
+						<% end %>
+					</div>
+					<div class="vinfo_buttons">
+									<!--ссылка куда-то, в рамочке-->
+									<div class="visual_info_switch">
+									
+										<p class="color_label">Выбор цвета: </p>
+										<% @item.colour_photos.each do |p| %>
+									<a class="color" style="background-color: #<%= p.color %>;" onclick="$('#colorImgScreen').attr('src', '<%= p.asset.url(:preview) %>'); $('#color_title').html('<%= p.color_title %>');"> </a>
+									    <% end %>
+									<label class="color_label" for="color_title" id="color_title"><%= @item.colour_photos.first.color_title %></label>
+									</div>
+
+								</div>
+					<!--ссылка куда-то, в рамочке-->
+
+			</div>
+			<% end %>
+			<% if params[:view] == 'swf' %>
+			<div id="swf">
+				<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+				codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
+				WIDTH="550" HEIGHT="400" id="myMovieName">
+				<PARAM NAME=movie VALUE="<%=@item.swf_url%>">
+				<PARAM NAME=quality VALUE=high>
+				<PARAM NAME=bgcolor VALUE=#FFFFFF>
+
+				<EMBED src="<%=@item.swf_url%>" quality=high bgcolor=#FFFFFF WIDTH="550" HEIGHT="400"
+				NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash"
+				PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+				</EMBED>
+				</OBJECT>
+			</div>
+			<% end %>
+			<% if params[:view] == 'video' %>
+			<div id="video" style="background: url(/images/ajax-loader.gif) center center no-repeat; height: 360px; width: 540px;">
+			
+				<% 
+				client = YouTubeG::Client.new
+				youtube_unique_path = @item.youtube_video
+				youtube_base_url = "http://gdata.youtube.com/feeds/api/videos/"
+				youtube_unique_id = youtube_unique_path.split(/\/|\?v\=/).last.split(/\&/).first
+				video = client.video_by youtube_base_url+youtube_unique_id rescue return "Видео не найдено"
+				%>
+				<%= video.embed_html("540", "360") %>
+			</div>
+			<% end %>
+			<% end %>
+			<!--картинки -->
+			
+			<!--пример текстового блока,
+			для всех элементов внутри контейнера с классом "text" прописаны особые стили-->
+
+			<% if params[:show] == 'review'%>
+			<div id="review">
+			<div class="text">
+				<%= @item.review %>
+			</div>
+			</div>
+			<% elsif params[:show] =='media' %>
+			<div class="text">
+				<%= @item.description %>
+			</div>
+			<% end %>
+			<% if params[:show] == 'tech_info' %>
+						   <div><%= image_tag @item.image.url %></div>
+						   
+						   <div class="tech_info_container">
+							<% if @item.features.length > 10 %>
+							<h3>Особенности<a href="#" class="tech_info_button" onclick="$('#tech_info_0').toggle('slow'); if($(this).html() == '-') $(this).html('+'); else $(this).html('-');">-</a></h3>
+							<div class="tech_info_content" id="tech_info_0">
+								  <%= @item.features %>
+								
+							</div>
+							<% end %>
+							<% @item.page.parent.ttx_groups.each do |g| %>
+							
+							<h3><%= g.title %><a href="#" class="tech_info_button" onclick="$('#tech_info_<%=g.id%>').toggle('slow'); if($(this).html() == '-') $(this).html('+'); else $(this).html('-');">-</a></h3>
+							<div class="tech_info_content" id="tech_info_<%=g.id%>">
+								<table cellspacing="0" cellpadding="0" width="100%">
+								<tbody>
+								<% @item.item_ttxes.each do |i| %>
+								<% if i.ttx && i.ttx.ttx_group_id == g.id %>
+								<tr <%= cycle("", "class='gray'") %>>
+									<th><%= i.ttx.title %></th>
+									<td><%= i.value %></td>
+								</tr>
+								<% end %>
+								<% end %>
+								</tbody>
+								</table>
+							</div>
+							<% end %>
+						</div>
+						<% end %>
+						
+
+			<%= %>
+		<!-- галерея, видео, описание - конец -->
+		</div>

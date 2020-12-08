@@ -1,0 +1,8 @@
+<p>
+<% f.fields_for :gallery_photos do |builder| %>
+  <%= builder.label :content, "Select File" %>
+  <%= builder.file_field :asset %>
+  <%= builder.check_box :_destroy %>
+  <%= builder.label :_destroy, "Remove" %>
+<% end %>
+</p>

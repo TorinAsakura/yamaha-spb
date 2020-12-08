@@ -1,0 +1,22 @@
+<% ttx_group ||= @ttx_group %>
+<div id="ttx_group_div_<%=ttx_group.id %>">
+			<p><font style="font-size: 18px;"><%=ttx_group.title%></font>
+				<%= link_to_remote "Удалить", :url => admin_ttx_group_path(ttx_group), :method => :delete, :confirm => "Вы уверены что хотите удалить группу характеристик? Характеристика будет удалена со всех типов техники." %>
+				</p>
+			<% if ttx_group.ttxes %>
+		     <% ttx_group.ttxes.each do |ttx| %>
+			 
+		  <div class="ttx">
+			    <%= render :partial => "item_ttx_form_with_options", :locals => {:item => @item, :ttx => ttx} %>
+	      </div>
+			<% end %>
+			<% end %>
+			<div class="ttx_div_add_group" id="tr_group_id_<%=ttx_group.id%>">
+			<a class="ttx_add_group" onclick="ttx_toggle(this);">Добавить характеристику</a><br/>
+			<div class="ttx_form_add_group">
+			<%= text_field_tag "ttx[title]_#{ttx_group.id}" %> 
+			<%= button_to_remote "Добавить", :url => admin_ttxes_path, :with => "'ttx[title]='+$('#ttx_title_#{ttx_group.id}').val()+'&ttx[ttx_group_id]=#{ttx_group.id}'" %>
+			</div>
+			</div>
+			<div class="clear"></div>
+</div>

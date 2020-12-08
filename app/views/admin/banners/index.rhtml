@@ -1,0 +1,31 @@
+<% content_for :actions do %>
+  <%= link_to 'Создать баннер', new_admin_banner_path %>  
+<% end %>
+<div id="subnav">
+	<%= yield :actions %>
+</div>
+<div class="container">
+
+<% pages = [] %>
+<% main_page_banners = [] %>
+<% @banners.each do |banner| %>
+	<% if banner.page %><% pages << banner.page %>
+	<% else %><% main_page_banners << banner %><% end %>
+<% end %>
+<ul class="banners">
+	<h1>Главная</h1>
+	<% main_page_banners.each do |banner| %>
+  <li><%= image_tag banner.image.url %> <%= banner.title %> <%= link_to 'Редактировать', edit_admin_banner_path(banner) %> <%= link_to 'Удалить', admin_banner_path(banner), :method => :delete %>
+	<% end %>
+</ul>
+<div class="clear"></div>
+<% pages.each do |p| %><%= content_tag('h1', p.title) %>
+<ul class="banners">
+	<% p.banners.each do |banner| %>
+  <li><%= image_tag banner.image.url %> <%= banner.title %> <%= link_to 'Редактировать', edit_admin_banner_path(banner) %> <%= link_to 'Удалить', admin_banner_path(banner), :method => :delete %>
+	<% end %>
+</ul>
+<div class="clear"></div>
+<% end %>
+
+</div>

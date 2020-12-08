@@ -1,0 +1,134 @@
+.ui-tabs-hide {
+	display: none;
+}
+.hidden {
+	display: none;
+}
+
+div.scrollable  { 
+ 
+    /* required settings */ 
+	z-index: 0;
+    position:relative; 
+    overflow:hidden; 
+    width: 540px; 
+    height:360px; 
+}
+
+div.scrollable div.items { 
+    /* this cannot be too large */ 
+    width:20000em; 
+   	position: absolute;
+}
+
+div.scrollable div.gallery { 
+    /* this cannot be too large */ 
+    width:500px; 
+   	position: absolute;
+	margin-left:45px;
+}
+
+div.scrollable div.items div, div.scrollable div.gallery div { 
+    float:left; 
+} 
+ 
+/* you may want to setup some decorations to active the item */ 
+div.items div.active { 
+
+    border:1px inset #ccc; 
+    background-color:#fff; 
+}
+.gallery img.big {
+	width: 540px;
+	height: 360px;
+	margin: -15px 0px 0px -46px;
+}
+.gallery div.list {
+	width: 540px;
+	height: 360px;
+}
+.items img {
+	width: 540px;
+	height: 360px;
+}
+
+.next, .prev {
+	cursor: pointer;
+}
+.disabled {
+	display: none;
+	cursor: default;
+}
+
+.overlay {
+	z-index: 100;
+}
+
+#main_image_placeholder {
+	width: 100%;
+	height: 218px;
+}
+
+#colours img {
+   height: 360px;
+}
+
+.color_buttons {
+	position: absolute;
+	width: auto;
+	height: 50px;
+	text-align: center;
+	display: block;
+	z-index: 100;
+	left: 50%;
+	top: 80%;
+	
+}
+.color_buttons a {
+
+	height: 40px;
+	width: 40px;
+	margin: 5px;
+	display: block;
+	float: left;
+}
+.visual_info {
+	height: 360px;
+}
+
+a {
+	cursor: pointer;
+}
+a.snowmotor {
+	background-color: rgb(157, 185, 209) !important;
+}
+
+a.kvadro, a.quadro, a.motodirt, a.rover {
+	background-color: rgb(169, 151, 103) !important;
+}
+
+a.boatmotor, a.Trailers_boats_Vector, a.Trailers_boats_Respo, a.hydrocycles, a.boats {
+	background-color: rgb(0, 107, 187) !important;
+}
+
+a.generators {
+	background-color: rgb(237, 179, 43) !important;
+}
+
+.snowmotor a {
+	color: rgb(157, 185, 209) !important;
+}
+
+.kvadro a, .quadro a, .motodirt a, .rover a {
+	color: rgb(169, 151, 103) !important;
+}
+
+.boatmotor a, .Trailers_boats_Respo a, .Trailers_boats_Vector a, .hydrocycles a, .boats a {
+	color: rgb(0, 107, 187) !important;
+}
+
+.generators  a {
+	color: rgb(237, 179, 43) !important;
+}
+
+.text li { list-style-type: circle; margin-left: 13px; }

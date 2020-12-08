@@ -1,0 +1,51 @@
+.contact {
+	background-image: url("../images/BBC_Logo_gray.png");
+	background-repeat: no-repeat;
+	margin-left: 5px;
+	padding-left: 130px;
+	margin-right: 245px;
+	float: left;
+}
+.phones {
+	margin-top: 3px;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+a.map_link {
+	background-image: url("../images/flag.gif");
+	background-repeat: no-repeat;
+	font-size: 10px;
+	color: black;
+	padding-left: 17px;
+	line-height: 14px;
+	margin-top: 10px;
+	display: block;
+	float: left;
+}
+a.map_link:hover {
+	color: #d52b1e;
+}
+.author {
+	margin-left: -245px;
+	margin-right: 8px;
+	float: right;
+	width: 235px;
+}
+	.author p {
+		float: right;
+		background-image: url("../images/Logomotiv.png");
+		background-repeat: no-repeat;
+		background-position: left 3px;
+		width: 205px;
+		font-size: 9px;
+		padding-left: 22px;
+	}
+	.author p a {font-size: 9px; color: black;}
+	.author p a:hover {color: #d52b1e;}
+
+.counter {
+	float: left;
+	margin-top: 15px;
+	margin-left: 28px;
+}

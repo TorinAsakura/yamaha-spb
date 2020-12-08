@@ -1,0 +1,14 @@
+<%= render :partial => "breadcrumbs" %>
+<%= @page.content %>
+<div id="models_list_container" class="models_list_container">
+<% i = 0 %>
+<% for item in @items %>
+<% i+=1 %>
+<div class="model_item"><nobr><a class="head_button <%= item.page.permalink %> <%= item.page.parent.permalink %>" href="/store/<%= @path.collect {|a| a+"/"} %><%= item.id %>"><%= item.title %></a></nobr>
+		<div class="models_list <%= item.page.parent.permalink %> <%= item.page.permalink %>"><a href="/store/<%= @path.collect {|a| a+"/"} %><%= item.id %>"><img src="<%= item.image.url %>" /></a></div></div>
+<% if i == 5 || i == 10 %>
+<div class="gray_split_line"></div>
+<% end %>
+<% end %>
+
+</div>

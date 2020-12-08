@@ -1,0 +1,18 @@
+.container_w220, .container_w540, .container_w480, .container_w450 {
+	position: relative;
+}
+.container_w220 {
+	width: 220px;
+}
+.container_w540 {
+	width: 540px;
+}
+.container_w480 {
+	width: 480px;
+}
+.container_w450 {
+	width: 450px;
+}
+.container_100p {
+	width: auto;
+}

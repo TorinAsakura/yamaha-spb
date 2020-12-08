@@ -1,0 +1,24 @@
+<%= render :partial => "shared/left_menu" %>
+
+<div class="text container_w480"><div class="margin_15">
+	<h1><%= @post.title %></h1>
+	<%= @post.content %>
+	</div></div>
+	<% if @related_posts.size > 0 %>
+	<div class="gray_split_line"></div>
+	<div class="text container_w480"><div class="margin_15">
+	<p><b>Другие новости по теме:</b></p>
+	<ul class="news_on_topic">
+	<% for post in @related_posts%>
+	<% if post.id != @post.id %><li><%= link_to(post.title, news_path(post)) %></li><% end %>
+	<% end %>
+	</ul>
+	</div>
+	</div>
+	<% end %>
+
+
+
+
+
+</div>

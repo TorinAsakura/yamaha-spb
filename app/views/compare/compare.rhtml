@@ -1,0 +1,98 @@
+		<!--дерево ссылок-->
+		<ul class="links_tree">
+		<li><a href="/">Главная</a></li>
+		<li><a href="/store/production/">Продукция</a></li>
+		<li><%= link_to @items.first.page.parent.title, "/store/production/#{@items.first.page.parent.permalink}" %></li>
+		<li><%= link_to @items.first.page.title, "/store/production/#{@items.first.page.permalink}", :style => "background: url()" %></li>
+		</ul>
+
+		<!-- серое меню -->
+		<%= render :partial => "shared/hot_links" %>
+		
+		<div class="left_menu_187">
+			<!-- меню слева -->
+			<ul class="catalog_menu">
+			<h1>Сравнение моделей</h1>
+			</ul>
+		</div>
+		
+		<div class="container_w480 left" style="z-index: 15; margin-left: 187px; overflow: hidden;">
+
+		<a class="button_gray margin_0_15" id="compare_show_form" href="#"><span class="left_item"></span>+ Добавить к сравнению<span class="right_item"></span></a>
+		<form class="compare_add_form">
+			<p class="left"><b>Добавить к сравнению</b></p>
+			<a href="#" class="close_compare right close_compare_form"></a>
+			<br /><br />
+			<select name="item_type" onchange="$.get('/compare/list_models/'+this.value, function(data) { $('#models_select').html(data);} );">
+			<option disabled selected>Тип</option>
+
+<% @items.first.page.parent.children.each do |c| %>
+			<option value="<%= c.id %>"><%= c.title %></option>
+<% end %>
+			</select>
+			
+			<select id="models_select" onclick="$('#compare_add_button').attr('href', '/compare/'+this.value);">
+			<option disabled selected>Модель</option>
+			</select>
+			<a class="button_gray w_80" id="compare_add_button" href="#"><span class="left_item"></span>Добавить<span class="right_item"></span></a>
+
+		</form>
+		</div>
+		<div class="compare_table" id="compare_table">
+			<div class="fill_left"></div>
+			<div class="fill_right"></div>
+			<div class="clear"></div>
+			<div id="compare-buttons">
+			<a id="scroll_next" style="display: none;"></a>
+			<a id="scroll_prev" <%='style="display: none;"' if @items.size <= 4 %>></a>
+			</div>
+			<div class="row">
+
+				<h1>&nbsp;</h1>
+				<ul>
+				<% @items.each do |i| %>
+				<li><a href="/store/<%= i.page.full_permalink %>/<%= i.id %>" class="model"><img src="<%= i.image.url %>" /><br /><%= i.title %></a><a href="/compare/<%=i.id%>?delete=delete" class="close_compare"></a></li>
+				<% end %>
+				
+				
+				</ul>
+			</div>
+			
+			<div class="gray_split_line"></div>
+			
+			<div class="row">
+
+				<h1>Цена, руб.</h1>
+				<ul>
+			    <% @items.each do |i| %>
+				<li><%= i.price %></li>
+				<% end %>
+				</ul>
+			</div>
+			
+			<div class="gray_split_line clear"></div>
+			<% TtxGroup.find(:all, :conditions => {}) 
+			%>
+			<% @items.first.page.parent.ttx_groups.find(:all, :conditions => "no_options = false").each do |g| %>
+			  <% g.ttxes.each do |ttx| %>
+			  <div class="row">
+				<h1><%= ttx.title %></h1>
+				<ul>
+				<% @items.each do |i| %>
+				  <% i.item_ttxes.each do |it| %>
+				  <% if i.id == it.item_id && ttx.id == it.ttx_id %>
+				    <li><%= it.value %></li>
+				  <% end %>
+				  <% end %>
+				<% end %>
+				</ul>
+			  </div>
+			  <% end %>
+			<div class="gray_split_line clear"></div>
+			<% end %>
+		
+		</div>
+		
+		<a class="button_gray margin_10_0" onclick="$('body > *').hide();  $('#compare_table').parent('*').show(); $('#main_container > *').hide(); $('.content').show(); $('#main_container').show(); $('.margin_15 > *').hide(); $('#compare_table').show(); window.print();"><span class="left_item"></span>Печать...<span class="right_item"></span></a>
+
+	<!-- контент - конец -->

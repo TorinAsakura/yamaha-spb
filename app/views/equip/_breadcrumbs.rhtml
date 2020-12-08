@@ -1,0 +1,12 @@
+<ul class="links_tree">
+		<li><a href="/">Главная</a></li>
+		<% if params[:action] == 'index' %>
+			<li><p>Аксессуары</p></li>
+		<% else %>
+			
+            <% @page.ancestors.each do |p| %>
+            <li><a href="/<%= p.full_permalink %>"><%= p.title %></a></li>
+            <% end %>
+            <li><p><%= @page.title %></p></li>
+        <% end %>
+</ul>

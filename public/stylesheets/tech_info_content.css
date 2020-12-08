@@ -1,0 +1,51 @@
+.tech_info_container {
+	
+}
+	.tech_info_container h3 {
+		display: block;
+		background-color: #d52b1e;
+		font-size: 13px;
+		line-height: 16px;
+		padding-bottom: 2px;
+		color: white;
+		text-indent: 20px;
+		position: relative;
+		border: 1px solid white;
+	}
+	.tech_info_container a.tech_info_button {
+		display: block;
+		background-color: #616365;
+		color: white;
+		text-indent: 0px;
+		text-decoration: none;
+		text-align: center;
+		line-height: 16px;
+		width: 18px;
+		height: 18px;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	}
+	.tech_info_container a.tech_info_button:hover {
+		background-color: #d9d9d9;
+		color: #1e1e1e;
+	}
+	
+.tech_info_content {
+	margin: 11px;
+	margin-right: 100px;
+}
+	.tech_info_content li {
+		background-image: url("../images/gray_list_point.gif");
+		background-repeat: no-repeat;
+		background-position: 0px 5px;
+		margin-bottom: 10px;
+		padding-left: 10px;
+	}
+	.tech_info_content th, .tech_info_content td {
+		text-align: left;
+		padding: 5px 10px 6px 10px;
+	}
+	.tech_info_content .gray th, .tech_info_content .gray td {
+		background-color: #ececec;
+	}

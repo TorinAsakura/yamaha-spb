@@ -1,0 +1,21 @@
+<div class="visual_info">
+				<a href="#" class="vinfo_arrow_right"></a>
+				<a href="#" class="vinfo_arrow_left"></a>
+				<div class="gallery">
+				<% @item.gallery_photos.each do |p| %>
+				   <%= image_tag(p.asset.url(:preview)) %>
+				<% end %>
+				</div></div>
+			<div class="vinfo_buttons">
+				<!--ссылка куда-то, в рамочке-->
+				<div class="visual_info_switch">
+					
+					<a href="#">Галерея</a>
+				</div>
+				<!--скачать-->
+				<div class="visual_info_download">
+					<a href="#"><b class="font_red">Скачать</b><br />
+					<span class="size_9">1024x768 (135 kb)</span></a>
+				</div>
+
+</div>

@@ -1,0 +1,39 @@
+body {
+	behavior: url("scripts/csshover3.htc");
+}
+.tech_info_container a.tech_info_button {
+	right: 217px;
+}
+
+.price_tr {
+	top: -1px;
+	right: -2px;
+}
+.price_bl {
+	bottom: -1px;
+	left: -1px;
+}
+.price_br {
+	bottom: -1px;
+	right: -2px;
+}
+
+.filter_bottom_arrow {
+	bottom: -14px;
+}
+
+.text {
+	padding-right: 30px;
+	margin-right: -15px;
+}
+
+.default_form h1 {
+	margin-right: -26px;
+}
+.default_form .close {
+	right: -1px;
+}
+
+.main_flash {
+	margin-right: -4px;
+}

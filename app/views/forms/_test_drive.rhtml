@@ -1,0 +1,82 @@
+<table class="form_container">
+<tbody><tr><td>
+	<form class="default_form" action="/forms/contact/" method="POST" name="test_drive_form">
+		<h1>Запись на тест-драйв</h1>
+		<div class="close"><a href="#" onclick="close_map();">Закрыть</a></div>
+		
+		<div class="text container_w450">
+			<div class="error clear"></div><br/>
+		</div>
+		
+		<label>Представьтесь, пожалуйста *</label><br/><input id="name" type="text" name="name" />
+		
+		<label>Ваш телефон</label><br/><input type="text" name="phone" />
+		
+		<label>Эл. почта *</label><br/><input type="text" id="email" name="email" />
+		
+
+		<div class="clear padding_10_0">
+			<div class="cols_3"><label>Опыт вождения</label></div>
+			<div class="cols_3"><label>Наличие мототехники</label></div>
+			<div class="cols_3"><label>Наличие прав</label></div>
+			<div class="gray_split_line"></div>
+			<div class="radio cols_3">
+			<label><input type="radio" name="option1" value="Нет"/>Нет</label>
+			<label><input type="radio" name="option1" value="1-2 года"/>1-2 года</label>
+			<label><input type="radio" name="option1" value="Свыше 2-х лет"/>Свыше 2-х лет</label>
+			</div>
+			<div class="radio cols_3">
+			<label><input type="radio" name="option2" value="Да, есть" />Да, есть</label>
+			<label><input type="radio" name="option2" value="Нет, но хочется" />Нет, но хочется</label>
+			</div>
+			<div class="radio cols_3">
+			<label><input type="radio" name="option3" value="Категория А"/>Категория «A»</label>
+			<label><input type="radio" name="option3" value="Тракторист-машинист"/>Тракторист-машинист</label>
+			<label><input type="radio" name="option3" value="Нет"/>Нет</label>
+			</div>
+		</div>
+		
+		<div class="clear padding_10_0">
+			<label>Выберите тип техники для тест-драйва</label>
+			<div class="gray_split_line"/>
+			<div class="radio cols_3">
+			<label><input type="radio" name="option4" value="Мотоцикл"/>Мотоцикл</label>
+			<label><input type="radio" name="option4" value="Скутер"/>Скутер</label>
+			</div>
+			<div class="radio cols_3">
+			<label><input type="radio" name="option4" value="Квадроцикл"/>Квадроцикл</label>
+			<label><input type="radio" name="option4" value="Снегоход"/>Снегоход</label>
+			</div>
+			<div class="radio cols_3">
+			<label><input type="radio" name="option4" value="Гидроцикл"/>Гидроцикл</label>
+			<label><input type="radio" name="option4" value="Катер" />Катер</label>
+			</div>
+			
+		</div>
+				
+		<label><br/>Комментарии<br/>
+			<textarea name="comments"></textarea>
+		</label>
+		
+		<a href="#" onclick="if(form_check(document.test_drive_form)) { document.test_drive_form.submit(); } else return false;" class="button_red margin_10_0"><span class="left_item"/>Отправить....<span class="right_item"/></a>
+		<br/><br/>
+	</form>
+</td></tr></tbody>
+</table>
+
+<script type="text/javascript">
+function form_check(f) {
+   var errors;
+   if(!$('#name').val()) { $(".error").html("Введите имя<br/>"); return false; }
+   if(!isValidEmail($('#email').val()) ) { $(".error").append("Неверно введен e-mail"); return false; }
+	return true;
+}
+
+function isValidEmail (email)
+{
+ //if ( !strict ) email = email.replace(/^\s+|\s+$/g, '');
+if(/^[a-zA-Z0-9](([a-z0-9\-_\+\&]?)+[a-z0-9])?\@((\w([a-zA-Z0-9\-_]+\w)?\.[a-z]{2,4})|(([01]?\d\d|2[0-4]\d|25[0-5])\.([01]?\d\d|2[0-4]\d|25[0-5])\.([01]?\d\d |2[0-4]\d|25[0-5])\.([01]?\d\d|2[0-4]\d|25[0-5]))|(localhost))$/i.test(email)) return true;else return false;
+// return (/^([a-z0-9_\-]+\.)*[a-z0-9_\-]+@([a-z0-9][a-z0-9\-]*[a-z0-9]\.)+[a-z]{2,4}$/i).test(email);
+}
+
+</script>
